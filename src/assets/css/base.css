@@ -1,0 +1,34 @@
+/* polices */
+@font-face {
+	font-family: Rakkas;
+	src: url(../polices/Rakkas-Regular.ttf);
+}
+@font-face {
+	font-family: Kufam;
+	src: url(../polices/Kufam-VariableFont_wght.ttf);
+}
+/* variables CSS */
+:root {
+	/* ===== COLORS ===== */
+	--color-primary: #f6aa1c;
+	--color-secondary: #bc3908;
+	--color-secondary-alt: #941b0c;
+
+	--color-accent: #621708;
+
+	--color-texte: #220901;
+
+	/* ===== TYPOGRAPHY ===== */
+	--font-title: Rakkas, serif;
+	--font-subtitle: kufam, sans-serif;
+}
+
+/* balises HTML */
+
+* {
+	box-sizing: border-box;
+}
+
+img {
+	width: 100%;
+}
