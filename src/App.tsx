@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Navigation } from './components/Navigation';
-import { Hero } from './components/Hero';
-import { ArtistesPage } from './components/ArtistesPage';
-import { BilletteriePage } from './components/BilletteriePage';
-import { ContactPage } from './components/ContactPage';
-import { Footer } from './components/Footer';
+import { Navigation } from './Components/Navigation';
+import { Hero } from './Components/Hero';
+import { ArtistesPage } from './Components/ArtistesPage';
+import { BilletteriePage } from './Components/BilletteriePage';
+import { ContactPage } from './Components/ContactPage';
+import { Footer } from './Components/Footer';
 
 type Page = 'accueil' | 'artistes' | 'billetterie' | 'contact';
 
