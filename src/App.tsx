@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import { Navigation } from './Components/Navigation';
+import { Hero } from './Components/Hero';
+import { ArtistesPage } from './Components/ArtistesPage';
+import { BilletteriePage } from './Components/BilletteriePage';
+import { ContactPage } from './Components/ContactPage';
+import { Footer } from './Components/Footer';
 
-function App() {
-  const [count, setCount] = useState(0)
+type Page = 'accueil' | 'artistes' | 'billetterie' | 'contact';
+
+export default function App() {
+  const [currentPage, setCurrentPage] = useState<Page>('accueil');
+
+  // Smooth scroll to top when page changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage]);
+
+  const handleNavigate = (page: string) => {
+    setCurrentPage(page as Page);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="min-h-screen bg-[#0f0d0a]">
+      <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
+      
+      {currentPage === 'accueil' && <Hero onNavigate={handleNavigate} />}
+      {currentPage === 'artistes' && <ArtistesPage />}
+      {currentPage === 'billetterie' && <BilletteriePage />}
+      {currentPage === 'contact' && <ContactPage />}
+      
+      <Footer />
+    </div>
+  );
 }
-
-export default App
