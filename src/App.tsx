@@ -29,7 +29,7 @@ export default function App() {
       {currentPage === 'billetterie' && <BilletteriePage />}
       {currentPage === 'contact' && <ContactPage />}
       
-      <Footer/>
+      <Footer />
     </div>
   );
 }
