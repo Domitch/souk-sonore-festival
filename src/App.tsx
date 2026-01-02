@@ -5,6 +5,7 @@ import { ContactPage } from "./Components/ContactPage";
 import { Footer } from "./Components/Footer";
 import { Hero } from "./Components/Hero";
 import { Navigation } from "./Components/Navigation";
+import "./App.css";
 
 type Page = "accueil" | "artistes" | "billetterie" | "contact";
 
@@ -21,7 +22,7 @@ export default function App() {
 	};
 
 	return (
-		<div className="min-h-screen bg-[#0f0d0a]">
+		<div className="text-3xl min-h-screen bg-[#0f0d0a]">
 			<Navigation currentPage={currentPage} onNavigate={handleNavigate} />
 
 			{currentPage === "accueil" && <Hero onNavigate={handleNavigate} />}
