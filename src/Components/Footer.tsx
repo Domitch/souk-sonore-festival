@@ -1,5 +1,5 @@
-// import { Facebook, Instagram, Mail, Twitter } from "lucide-react";
-// import { motion } from "motion/react";
+import { Facebook, Instagram, Mail, Twitter } from "lucide-react";
+import { motion } from "motion/react";
 
 export function Footer() {
 	return (
@@ -14,7 +14,7 @@ export function Footer() {
 							d'Afrique, d'Amérique latine et du monde arabe.
 						</p>
 						<div className="flex gap-3">
-							{/* {[Instagram, Facebook, Twitter, Mail].map((Icon, index) => (
+							{[Instagram, Facebook, Twitter, Mail].map((Icon, index) => (
 								<motion.a
 									key={index}
 									href="/reseaux"
@@ -23,7 +23,7 @@ export function Footer() {
 								>
 									<Icon className="w-5 h-5" />
 								</motion.a>
-							))} */}
+							))}
 						</div>
 					</div>
 

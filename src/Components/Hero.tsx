@@ -1,7 +1,5 @@
 import { ArrowRight, Heart, Music, Users } from "lucide-react";
-
 import { motion } from "motion/react";
-// import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Button } from "./button";
 
 interface HeroProps {
@@ -15,11 +13,11 @@ export function Hero({ onNavigate }: HeroProps) {
 			<section className="relative min-h-[90vh] flex items-center overflow-hidden">
 				{/* Background Image */}
 				<div className="absolute inset-0 z-0">
-					{/* <ImageWithFallback
-						src="https://images.unsplash.com/photo-1571900267799-debdb80d1617?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtdXNpYyUyMGZlc3RpdmFsJTIwY3Jvd2QlMjBuaWdodHxlbnwxfHx8fDE3NjY5MjUzODZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+					<img
+						src="/public/img/concert-musique.jpg"
 						alt="Festival atmosphere"
 						className="w-full h-full object-cover"
-					/> */}
+					/>{" "}
 					<div className="absolute inset-0 bg-gradient-to-b from-[#0f0d0a]/80 via-[#0f0d0a]/60 to-[#0f0d0a]" />
 				</div>
 
