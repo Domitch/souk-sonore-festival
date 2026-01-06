@@ -99,16 +99,16 @@ export function ArtistesPage() {
 			case "Afro":
 				return "bg-[#c97d5d]";
 			case "Latino":
-				return "bg-[#d4a574]";
+				return "bg-[#f6aa1c]";
 			case "Arabe":
 				return "bg-[#4a5f8c]";
 			default:
-				return "bg-[#d4a574]";
+				return "bg-[#f6aa1c]";
 		}
 	};
 
 	return (
-		<div className="min-h-screen pt-20 bg-gradient-to-b from-[#0f0d0a] via-[#1a1612] to-[#0f0d0a]">
+		<div className="min-h-screen pt-20 bg-gradient-to-b from-[#220901] via-[#220901] to-[#220901]">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
 				{/* Header */}
 				<motion.div

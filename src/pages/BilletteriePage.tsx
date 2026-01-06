@@ -1,6 +1,6 @@
 import { Check, Sparkles, Star, Ticket } from "lucide-react";
 import { motion } from "motion/react";
-import { Button } from "./button";
+import { Button } from "../Components/shared/button";
 
 interface PassOption {
 	title: string;
@@ -76,7 +76,7 @@ const passes: PassOption[] = [
 
 export function BilletteriePage() {
 	return (
-		<div className="min-h-screen pt-20 bg-gradient-to-b from-[#0f0d0a] via-[#1a1612] to-[#0f0d0a]">
+		<div className="min-h-screen pt-20 bg-gradient-to-b from-[#220901] via-[#220901] to-[#220901]">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
 				{/* Header */}
 				<motion.div
@@ -85,7 +85,7 @@ export function BilletteriePage() {
 					transition={{ duration: 0.8 }}
 					className="text-center mb-16"
 				>
-					<div className="inline-flex items-center gap-2 px-4 py-2 bg-[#d4a574]/20 border border-[#d4a574]/40 rounded-full text-[#d4a574] text-sm tracking-wider uppercase backdrop-blur-sm mb-6">
+					<div className="inline-flex items-center gap-2 px-4 py-2 bg-[#220901]/20 border border-[#d4a574]/40 rounded-full text-[#d4a574] text-sm tracking-wider uppercase backdrop-blur-sm mb-6">
 						<Ticket className="w-4 h-4" />
 						Billetterie
 					</div>
@@ -106,10 +106,10 @@ export function BilletteriePage() {
 							initial={{ opacity: 0, y: 50 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ delay: index * 0.2, duration: 0.6 }}
-							className={`relative bg-[#1a1612] rounded-2xl overflow-hidden ${
+							className={`relative bg-[#220901] rounded-2xl overflow-hidden ${
 								pass.recommended
-									? "border-2 border-[#d4a574] shadow-xl shadow-[#d4a574]/20 md:scale-105"
-									: "border border-[#d4a574]/20"
+									? "border-2 border-[#f6aa1c] shadow-xl shadow-[#d4a574]/20 md:scale-105"
+									: "border border-[#f6aa1c]/20"
 							}`}
 						>
 							{/* Badge */}
@@ -122,7 +122,7 @@ export function BilletteriePage() {
 							<div className={`p-8 ${pass.badge ? "pt-14" : ""}`}>
 								{/* Icon */}
 								<div className="w-16 h-16 bg-[#d4a574]/20 rounded-full flex items-center justify-center mb-6">
-									<pass.icon className="w-8 h-8 text-[#d4a574]" />
+									<pass.icon className="w-8 h-8 text-[#f6aa1c]" />
 								</div>
 
 								{/* Title */}
@@ -131,7 +131,7 @@ export function BilletteriePage() {
 								{/* Prices */}
 								<div className="mb-8 space-y-3">
 									<div className="flex items-baseline gap-2">
-										<span className="text-4xl text-[#d4a574]">
+										<span className="text-4xl text-[#f6aa1c]">
 											{pass.prices.plein}€
 										</span>
 										<span className="text-[#b8a99a]">Plein tarif</span>
@@ -157,7 +157,7 @@ export function BilletteriePage() {
 								<ul className="space-y-3 mb-8">
 									{pass.features.map((feature) => (
 										<li key={feature} className="flex items-start gap-3">
-											<Check className="w-5 h-5 text-[#d4a574] flex-shrink-0 mt-0.5" />
+											<Check className="w-5 h-5 text-[#f6aa1c] flex-shrink-0 mt-0.5" />
 											<span className="text-[#b8a99a]">{feature}</span>
 										</li>
 									))}
@@ -183,7 +183,7 @@ export function BilletteriePage() {
 					initial={{ opacity: 0, y: 30 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 0.8, duration: 0.6 }}
-					className="bg-[#1a1612] border border-[#d4a574]/20 rounded-2xl p-8 md:p-12"
+					className="bg-[#220901] border border-[#d4a574]/20 rounded-2xl p-8 md:p-12"
 				>
 					<h3 className="text-2xl mb-6 text-[#f5f1ea]">
 						Informations importantes
