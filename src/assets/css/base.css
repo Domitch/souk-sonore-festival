@@ -9,8 +9,6 @@
 	src: url(../polices/Kufam-VariableFont_wght.ttf);
 }
 
-
-
 /* variables CSS */
 :root {
 	/* ===== COLORS ===== */
@@ -36,8 +34,12 @@
 img {
 	width: 100%;
 }
+
 body {
 	background-color: #220901;
 	color: #f6aa1c;
 	font-family: var(--font-text);
+}
+h1 {
+	font-family: var(--font-title);
 }

@@ -1,4 +1,4 @@
-import { ArrowRight, Heart, Music, Users } from "lucide-react";
+import { ArrowRight, Heart, Music, Users, Video } from "lucide-react";
 import { motion } from "motion/react";
 import { Button } from "../Components/shared/button";
 
@@ -13,12 +13,15 @@ export function Hero({ onNavigate }: HeroProps) {
 			<section className="relative min-h-[90vh] flex items-center overflow-hidden">
 				{/* Background Image */}
 				<div className="absolute inset-0 z-0">
-					<img
-						src="/public/img/concert-musique.jpg"
-						alt="Festival atmosphere"
+					<video
 						className="w-full h-full object-cover"
-					/>{" "}
-					<div className="bg-gradient-to-b from-[#220901]/80 via-[#220901]/60 to-[#220901]" />
+						src="/video/video-bg.mp4"
+						autoPlay
+						loop
+						muted
+						playsInline
+					/>
+					<div className="absolute inset-0 bg-gradient-to-b from-[#220901]/80 via-[#220901]/60 to-[#220901]" />
 				</div>
 
 				{/* Content */}
@@ -47,9 +50,7 @@ export function Hero({ onNavigate }: HeroProps) {
 							className="text-5xl sm:text-6xl lg:text-7xl mb-8 leading-tight"
 						>
 							<span className="block text-[#f5f1ea]">Souk Sonore</span>
-							<span className="block text-[#d4a574] mt-2">
-								Trois cultures, un voyage.
-							</span>
+							<span className="block mt-2">Trois cultures, un voyage.</span>
 						</motion.h1>
 
 						<motion.p
