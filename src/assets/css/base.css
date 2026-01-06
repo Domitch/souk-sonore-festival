@@ -3,10 +3,14 @@
 	font-family: Rakkas;
 	src: url(../polices/Rakkas-Regular.ttf);
 }
+
 @font-face {
 	font-family: Kufam;
 	src: url(../polices/Kufam-VariableFont_wght.ttf);
 }
+
+
+
 /* variables CSS */
 :root {
 	/* ===== COLORS ===== */
@@ -20,7 +24,7 @@
 
 	/* ===== TYPOGRAPHY ===== */
 	--font-title: Rakkas, serif;
-	--font-subtitle: kufam, sans-serif;
+	--font-text: kufam, sans-serif;
 }
 
 /* balises HTML */
@@ -35,4 +39,5 @@ img {
 body {
 	background-color: #220901;
 	color: #f6aa1c;
+	font-family: var(--font-text);
 }

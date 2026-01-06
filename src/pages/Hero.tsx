@@ -48,7 +48,7 @@ export function Hero({ onNavigate }: HeroProps) {
 						>
 							<span className="block text-[#f5f1ea]">Souk Sonore</span>
 							<span className="block text-[#d4a574] mt-2">
-								Un voyage sonore, trois cultures
+								Trois cultures, un voyage.
 							</span>
 						</motion.h1>
 
