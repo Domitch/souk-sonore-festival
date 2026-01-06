@@ -1,6 +1,6 @@
 import { ArrowRight, Heart, Music, Users } from "lucide-react";
 import { motion } from "motion/react";
-import { Button } from "./button";
+import { Button } from "../Components/shared/button";
 
 interface HeroProps {
 	onNavigate: (page: string) => void;
@@ -18,7 +18,7 @@ export function Hero({ onNavigate }: HeroProps) {
 						alt="Festival atmosphere"
 						className="w-full h-full object-cover"
 					/>{" "}
-					<div className="absolute inset-0 bg-gradient-to-b from-[#0f0d0a]/80 via-[#0f0d0a]/60 to-[#0f0d0a]" />
+					<div className="bg-gradient-to-b from-[#220901]/80 via-[#220901]/60 to-[#220901]" />
 				</div>
 
 				{/* Content */}
@@ -118,7 +118,7 @@ export function Hero({ onNavigate }: HeroProps) {
 			</section>
 
 			{/* Values Section */}
-			<section className="relative py-24 bg-gradient-to-b from-[#0f0d0a] to-[#1a1612]">
+			<section className="relative py-24 bg-gradient-to-b from-[#220901] to-[#220901]">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<motion.div
 						initial={{ opacity: 0, y: 50 }}
@@ -130,7 +130,7 @@ export function Hero({ onNavigate }: HeroProps) {
 						<h2 className="text-4xl sm:text-5xl mb-6 text-[#f5f1ea]">
 							L'esprit du festival
 						</h2>
-						<p className="text-xl text-[#b8a99a] max-w-3xl mx-auto">
+						<p className="text-xl text-[#f6aa1c] max-w-3xl mx-auto">
 							Souk Sonore est bien plus qu'un festival : c'est une célébration
 							du métissage culturel, un espace de rencontre et d'échange entre
 							les peuples et les traditions.
@@ -168,7 +168,7 @@ export function Hero({ onNavigate }: HeroProps) {
 								className="bg-[#1a1612] border border-[#d4a574]/20 rounded-2xl p-8 transition-all duration-300 hover:border-[#d4a574]/40 hover:shadow-lg hover:shadow-[#d4a574]/10"
 							>
 								<div className="w-16 h-16 bg-[#d4a574]/20 rounded-full flex items-center justify-center mb-6">
-									<value.icon className="w-8 h-8 text-[#d4a574]" />
+									<value.icon className="w-8 h-8 text-[#f6aa1c]" />
 								</div>
 								<h3 className="text-2xl mb-4 text-[#f5f1ea]">{value.title}</h3>
 								<p className="text-[#b8a99a] leading-relaxed">

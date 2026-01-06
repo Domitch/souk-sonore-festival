@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { ArtistesPage } from "./Components/ArtistesPage";
-import { BilletteriePage } from "./Components/BilletteriePage";
-import { ContactPage } from "./Components/ContactPage";
-import { Footer } from "./Components/Footer";
-import { Hero } from "./Components/Hero";
-import { Navigation } from "./Components/Navigation";
+import { ArtistesPage } from "./pages/ArtistesPage";
+import { BilletteriePage } from "./pages/BilletteriePage";
+import { ContactPage } from "./pages/ContactPage";
+import { Hero } from "./pages/Hero";
 import "./App.css";
+import { Footer } from "./Components/shared/Footer";
+import { Navigation } from "./Components/shared/Navigation";
 
 type Page = "accueil" | "artistes" | "billetterie" | "contact";
 

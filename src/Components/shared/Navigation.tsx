@@ -23,7 +23,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
 		<motion.nav
 			initial={{ y: -100 }}
 			animate={{ y: 0 }}
-			className="fixed top-0 left-0 right-0 z-50 bg-[#0f0d0a]/95 backdrop-blur-md border-b border-[#d4a574]/20"
+			className="fixed top-0 left-0 right-0 z-50 bg-[#220901]/95 backdrop-blur-md border-b border-[#f6aa1c]/20"
 		>
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex items-center justify-between h-20">
@@ -33,7 +33,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
 						onClick={() => onNavigate("accueil")}
 						className="flex flex-col items-start"
 					>
-						<span className="text-2xl tracking-tight text-[#d4a574]">
+						<span className="text-2xl tracking-tight text-[##f6aa1c]">
 							Souk Sonore
 						</span>
 						<span className="text-xs text-[#b8a99a] tracking-widest uppercase">
@@ -49,7 +49,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
 								onClick={() => onNavigate(item.id)}
 								className={`relative px-3 py-2 transition-colors ${
 									currentPage === item.id
-										? "text-[#d4a574]"
+										? "text-[#f6aa1c]"
 										: "text-[#f5f1ea] hover:text-[#d4a574]"
 								}`}
 								whileHover={{ y: -2 }}
@@ -58,7 +58,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
 								{currentPage === item.id && (
 									<motion.div
 										layoutId="activeTab"
-										className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#d4a574]"
+										className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#f6aa1c]"
 										transition={{ type: "spring", stiffness: 300, damping: 30 }}
 									/>
 								)}
@@ -70,7 +70,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
 					<div className="hidden md:block">
 						<Button
 							onClick={() => onNavigate("billetterie")}
-							className="bg-[#d4a574] text-[#0f0d0a] hover:bg-[#c97d5d] hover:text-[#f5f1ea] transition-all duration-300"
+							className="bg-[#f6aa1c] text-[#f5f1ea] hover:bg-[#f6aa1c] hover:text-[#f5f1ea] transition-all duration-300"
 						>
 							<Ticket className="mr-2 h-4 w-4" />
 							Acheter un pass

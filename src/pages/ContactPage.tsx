@@ -9,9 +9,9 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
-import { Button } from "./button";
-import { Input } from "./input";
-import { Textarea } from "./textarea";
+import { Button } from "../Components/shared/button";
+import { Input } from "../Components/shared/input";
+import { Textarea } from "../Components/shared/textarea";
 
 export function ContactPage() {
 	const [formData, setFormData] = useState({
@@ -42,7 +42,7 @@ export function ContactPage() {
 	};
 
 	return (
-		<div className="min-h-screen pt-20 bg-gradient-to-b from-[#0f0d0a] via-[#1a1612] to-[#0f0d0a]">
+		<div className="min-h-screen pt-20 bg-gradient-to-b from-[#220901] via-[#220901] to-[#220901]">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
 				{/* Header */}
 				<motion.div
@@ -66,7 +66,7 @@ export function ContactPage() {
 						initial={{ opacity: 0, x: -50 }}
 						animate={{ opacity: 1, x: 0 }}
 						transition={{ delay: 0.2, duration: 0.8 }}
-						className="bg-[#1a1612] border border-[#d4a574]/20 rounded-2xl p-8 md:p-12"
+						className="bg-[#941b0c] border border-[#f6aa1c]/20 rounded-2xl p-8 md:p-12"
 					>
 						<h2 className="text-3xl mb-8 text-[#f5f1ea]">
 							Envoyez-nous un message
@@ -74,7 +74,7 @@ export function ContactPage() {
 
 						<form onSubmit={handleSubmit} className="space-y-6">
 							<div>
-								<label htmlFor="nom" className="block mb-2 text-[#e8d5b7]">
+								<label htmlFor="nom" className="block mb-2 text-[#f6aa1c]">
 									Nom complet
 								</label>
 								<Input
@@ -84,13 +84,13 @@ export function ContactPage() {
 									value={formData.nom}
 									onChange={handleChange}
 									required
-									className="w-full bg-[#0f0d0a] border-[#d4a574]/30 text-[#f5f1ea] focus:border-[#d4a574] transition-colors"
+									className="w-full bg-[#220901] border-[#f6aa1c]/30 text-[#f6aa1c] focus:border-[#f6aa1c] transition-colors"
 									placeholder="Votre nom"
 								/>
 							</div>
 
 							<div>
-								<label htmlFor="email" className="block mb-2 text-[#e8d5b7]">
+								<label htmlFor="email" className="block mb-2 text-[#f6aa1c]">
 									Email
 								</label>
 								<Input
@@ -100,13 +100,13 @@ export function ContactPage() {
 									value={formData.email}
 									onChange={handleChange}
 									required
-									className="w-full bg-[#0f0d0a] border-[#d4a574]/30 text-[#f5f1ea] focus:border-[#d4a574] transition-colors"
+									className="w-full bg-[#220901] border-[#f6aa1c]/30 text-[#f6aa1c] focus:border-[#f6aa1c] transition-colors"
 									placeholder="votre@email.com"
 								/>
 							</div>
 
 							<div>
-								<label htmlFor="message" className="block mb-2 text-[#e8d5b7]">
+								<label htmlFor="message" className="block mb-2 text-[#f6aa1c]">
 									Message
 								</label>
 								<Textarea
@@ -116,7 +116,7 @@ export function ContactPage() {
 									onChange={handleChange}
 									required
 									rows={6}
-									className="w-full bg-[#0f0d0a] border-[#d4a574]/30 text-[#f5f1ea] focus:border-[#d4a574] transition-colors resize-none"
+									className="w-full bg-[#220901] border-[#f6aa1c]/30 text-[#f6aa1c] focus:border-[#f6aa1c] transition-colors resize-none"
 									placeholder="Écrivez votre message ici..."
 								/>
 							</div>
@@ -124,7 +124,7 @@ export function ContactPage() {
 							<Button
 								type="submit"
 								disabled={submitted}
-								className="w-full bg-[#d4a574] text-[#0f0d0a] hover:bg-[#c97d5d] hover:text-[#f5f1ea] py-6 transition-all duration-300 disabled:opacity-50"
+								className="w-full bg-[#f6aa1c] text-[#220901] hover:bg-[#c97d5d] hover:text-[#f6aa1c] py-6 transition-all duration-300 disabled:opacity-50"
 							>
 								{submitted ? (
 									"Message envoyé ✓"
@@ -140,7 +140,7 @@ export function ContactPage() {
 								<motion.p
 									initial={{ opacity: 0, y: -10 }}
 									animate={{ opacity: 1, y: 0 }}
-									className="text-center text-[#d4a574]"
+									className="text-center text-[#f6aa1c]"
 								>
 									Merci ! Nous vous répondrons très bientôt.
 								</motion.p>
@@ -156,21 +156,21 @@ export function ContactPage() {
 						className="space-y-8"
 					>
 						{/* Info Cards */}
-						<div className="bg-[#1a1612] border border-[#d4a574]/20 rounded-2xl p-8">
-							<h3 className="text-2xl mb-6 text-[#f5f1ea]">
+						<div className="bg-[#941b0c] border border-[#f6aa1c]/20 rounded-2xl p-8">
+							<h3 className="text-2xl mb-6 text-[#f6aa1c]">
 								Informations de contact
 							</h3>
 
 							<div className="space-y-6">
 								<div className="flex items-start gap-4">
-									<div className="w-12 h-12 bg-[#d4a574]/20 rounded-full flex items-center justify-center flex-shrink-0">
-										<Mail className="w-6 h-6 text-[#d4a574]" />
+									<div className="w-12 h-12 bg-[#f6aa1c]/20 rounded-full flex items-center justify-center flex-shrink-0">
+										<Mail className="w-6 h-6 text-[#f6aa1c]" />
 									</div>
 									<div>
-										<h4 className="text-[#e8d5b7] mb-1">Email</h4>
+										<h4 className="text-[#f6aa1c] mb-1">Email</h4>
 										<a
 											href="mailto:contact@souksonore.com"
-											className="text-[#b8a99a] hover:text-[#d4a574] transition-colors"
+											className="text-[#f6aa1c] hover:text-[#f6aa1c] transition-colors"
 										>
 											contact@souksonore.com
 										</a>
@@ -178,14 +178,14 @@ export function ContactPage() {
 								</div>
 
 								<div className="flex items-start gap-4">
-									<div className="w-12 h-12 bg-[#d4a574]/20 rounded-full flex items-center justify-center flex-shrink-0">
-										<Phone className="w-6 h-6 text-[#d4a574]" />
+									<div className="w-12 h-12 bg-[#f6aa1c]/20 rounded-full flex items-center justify-center flex-shrink-0">
+										<Phone className="w-6 h-6 text-[#f6aa1c]" />
 									</div>
 									<div>
-										<h4 className="text-[#e8d5b7] mb-1">Téléphone</h4>
+										<h4 className="text-[#f6aa1c] mb-1">Téléphone</h4>
 										<a
 											href="tel:+33123456789"
-											className="text-[#b8a99a] hover:text-[#d4a574] transition-colors"
+											className="text-[#f6aa1c] hover:text-[#f6aa1c] transition-colors"
 										>
 											+33 1 23 45 67 89
 										</a>
@@ -193,12 +193,12 @@ export function ContactPage() {
 								</div>
 
 								<div className="flex items-start gap-4">
-									<div className="w-12 h-12 bg-[#d4a574]/20 rounded-full flex items-center justify-center flex-shrink-0">
-										<MapPin className="w-6 h-6 text-[#d4a574]" />
+									<div className="w-12 h-12 bg-[#f6aa1c]/20 rounded-full flex items-center justify-center flex-shrink-0">
+										<MapPin className="w-6 h-6 text-[#f6aa1c]" />
 									</div>
 									<div>
-										<h4 className="text-[#e8d5b7] mb-1">Adresse</h4>
-										<p className="text-[#b8a99a]">
+										<h4 className="text-[#f6aa1c] mb-1">Adresse</h4>
+										<p className="text-[#f6aa1c]">
 											Parc des Expositions
 											<br />
 											75000 Paris, France
@@ -209,8 +209,8 @@ export function ContactPage() {
 						</div>
 
 						{/* Social Media */}
-						<div className="bg-[#1a1612] border border-[#d4a574]/20 rounded-2xl p-8">
-							<h3 className="text-2xl mb-6 text-[#f5f1ea]">Suivez-nous</h3>
+						<div className="bg-[#941b0c] border border-[#f6aa1c]/20 rounded-2xl p-8">
+							<h3 className="text-2xl mb-6 text-[#f6aa1c]">Suivez-nous</h3>
 
 							<div className="flex gap-4">
 								{[
@@ -222,7 +222,7 @@ export function ContactPage() {
 										key={label}
 										href={href}
 										whileHover={{ scale: 1.1, y: -5 }}
-										className="w-14 h-14 bg-[#d4a574]/20 rounded-full flex items-center justify-center text-[#d4a574] hover:bg-[#d4a574] hover:text-[#0f0d0a] transition-all duration-300"
+										className="w-14 h-14 bg-[#f6aa1c]/20 rounded-full flex items-center justify-center text-[#f6aa1c] hover:bg-[#f6aa1c] hover:text-[#0f0d0a] transition-all duration-300"
 										aria-label={label}
 									>
 										<Icon className="w-6 h-6" />
@@ -230,7 +230,7 @@ export function ContactPage() {
 								))}
 							</div>
 
-							<p className="mt-6 text-[#b8a99a]">
+							<p className="mt-6 text-[#f6aa1c]">
 								Restez informés des dernières actualités, des annonces
 								d'artistes et des offres spéciales en nous suivant sur les
 								réseaux sociaux.
@@ -238,23 +238,23 @@ export function ContactPage() {
 						</div>
 
 						{/* Hours */}
-						<div className="bg-[#1a1612] border border-[#d4a574]/20 rounded-2xl p-8">
-							<h3 className="text-2xl mb-6 text-[#f5f1ea]">
+						<div className="bg-[#941b0c] border border-[#f6aa1c]/20 rounded-2xl p-8">
+							<h3 className="text-2xl mb-6 text-[#f6aa1c]">
 								Horaires du festival
 							</h3>
 
-							<div className="space-y-3 text-[#b8a99a]">
+							<div className="space-y-3 text-[#f6aa1c]">
 								<div className="flex justify-between">
 									<span>Vendredi 20 juin</span>
-									<span className="text-[#e8d5b7]">18h - 02h</span>
+									<span className="text-[#f6aa1c]">18h - 02h</span>
 								</div>
 								<div className="flex justify-between">
 									<span>Samedi 21 juin</span>
-									<span className="text-[#e8d5b7]">14h - 02h</span>
+									<span className="text-[#f6aa1c]">14h - 02h</span>
 								</div>
 								<div className="flex justify-between">
 									<span>Dimanche 22 juin</span>
-									<span className="text-[#e8d5b7]">14h - 00h</span>
+									<span className="text-[#f6aa1c]">14h - 00h</span>
 								</div>
 							</div>
 						</div>
