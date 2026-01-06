@@ -23,7 +23,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
 		<motion.nav
 			initial={{ y: -100 }}
 			animate={{ y: 0 }}
-			className="fixed top-0 left-0 right-0 z-50 bg-[#220901]/95 backdrop-blur-md border-b border-[#f6aa1c]/20"
+			className=" text-2xl fixed top-0 left-0 right-0 z-50 bg-[#220901]/95 backdrop-blur-md border-b border-[#f6aa1c]/20"
 		>
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex items-center justify-between h-20">
@@ -31,14 +31,13 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
 					<motion.button
 						whileHover={{ scale: 1.05 }}
 						onClick={() => onNavigate("accueil")}
-						className="flex flex-col items-start"
+						className="flex items-center gap-2"
 					>
-						<span className="text-2xl tracking-tight text-[##f6aa1c]">
-							Souk Sonore
-						</span>
-						<span className="text-xs text-[#b8a99a] tracking-widest uppercase">
-							Festival 2025
-						</span>
+						<img
+							src="/img/logo/logoSoukSonore.png"
+							alt="Souk Sonore Logo"
+							className="h-25 w-auto"
+						/>
 					</motion.button>
 
 					{/* Desktop Menu */}
@@ -47,10 +46,11 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
 							<motion.button
 								key={item.id}
 								onClick={() => onNavigate(item.id)}
+								style={{ fontFamily: "var(--font-title)" }}
 								className={`relative px-3 py-2 transition-colors ${
 									currentPage === item.id
 										? "text-[#f6aa1c]"
-										: "text-[#f5f1ea] hover:text-[#d4a574]"
+										: "text-[#f5f1ea] hover:text-[#f6aa1c]"
 								}`}
 								whileHover={{ y: -2 }}
 							>

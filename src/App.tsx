@@ -22,7 +22,7 @@ export default function App() {
 	};
 
 	return (
-		<div className="text-3xl min-h-screen bg-[#0f0d0a]">
+		<div className=" min-h-screen bg-[#0f0d0a]">
 			<Navigation currentPage={currentPage} onNavigate={handleNavigate} />
 
 			{currentPage === "accueil" && <Hero onNavigate={handleNavigate} />}
