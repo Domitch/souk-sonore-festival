@@ -195,8 +195,7 @@ export function Hero({ onNavigate }: HeroProps) {
 							Ils seront là
 						</h2>
 						<p className="text-xl text-[#b8a99a] mb-8">
-							Découvrez une programmation exceptionnelle d'artistes venus du
-							monde entier
+							Découvrez une programmation exceptionnelle d'artistes venus du monde entier
 						</p>
 						<Button
 							onClick={() => onNavigate("artistes")}

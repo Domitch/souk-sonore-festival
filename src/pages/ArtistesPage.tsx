@@ -17,69 +17,101 @@ interface Artist {
 const artists: Artist[] = [
 	{
 		id: 1,
-		name: "Ayomide",
-		origin: "Lagos, Nigeria",
-		culture: "Afro",
-		description: "Voix envoûtante mêlant afrobeat et soul contemporaine",
-		image:
-			"https://images.unsplash.com/photo-1766916012957-8324354f7ae0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwbXVzaWMlMjBmZXN0aXZhbCUyMHBlcmZvcm1lcnxlbnwxfHx8fDE3NjcwMDI3NzB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+		name: "Shakira",
+		origin: "Colombie",
+		culture: "Latino",
+		description: "Pop vibrante mêlant rythmes latins et mondiaux, fusionnant danse, voix puissante et sonorités afro‑latines.",
+		image: "//public/img/shakira/Shakira.jpg",
 		fullBio:
-			"Ayomide est une artiste nigériane qui fusionne les rythmes afrobeat traditionnels avec des influences soul et R&B modernes. Sa voix puissante et ses performances énergiques ont conquis les scènes internationales.",
+			"Shakira Isabel Mebarak Ripoll, née en 1977 à Barranquilla, construit une carrière internationale dès l’adolescence avant de s’imposer comme l’une des artistes latines les plus influentes au monde. Autrice, compositrice et interprète, elle enchaîne les succès mondiaux en espagnol et en anglais, tout en développant une image de performeuse complète et de marque globale. Parallèlement à la musique, elle s’investit dans l’entrepreneuriat, les jurys télévisés et des actions philanthropiques, consolidant une carrière durable et stratégique à l’échelle internationale.",
 	},
 	{
 		id: 2,
-		name: "Los Hermanos del Son",
-		origin: "La Havane, Cuba",
-		culture: "Latino",
-		description: "Salsa authentique et rythmes caribéens enflammés",
+		name: "Rema",
+		origin: "Nigéria",
+		culture: "Afro",
+		description: "Afrobeats modernes aux influences pop, trap et sonorités globales",
 		image:
-			"https://images.unsplash.com/photo-1622309855049-b67c6564c528?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYXRpbm8lMjBtdXNpY2lhbiUyMGNvbmNlcnR8ZW58MXx8fHwxNzY3MDAyNzcwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+			"//public/img/rema/rema.jpg",
 		fullBio:
-			"Ce collectif cubain perpétue la tradition de la salsa authentique tout en y apportant une touche contemporaine. Leurs performances explosives font danser les foules du monde entier.",
+			"Rema, originaire de Benin City au Nigeria, s’est imposé sur la scène afrobeats avec ses mixtapes et son premier album Rave & Roses, mêlant rythmes africains, trap et pop globale. Il a enchaîné les collaborations internationales avec des artistes comme Selena Gomez, Chris Brown ou J Balvin, consolidant son style hybride et sa place parmi les stars mondiales de la musique contemporaine.",
 	},
 	{
 		id: 3,
-		name: "Yasmine al-Nour",
-		origin: "Le Caire, Égypte",
+		name: "Tif",
+		origin: "Algérie",
 		culture: "Arabe",
-		description: "Fusion de musique arabe classique et électronique moderne",
-		image:
-			"https://images.unsplash.com/photo-1544266671-4d2166b22982?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmFiaWMlMjBtaWRkbGUlMjBlYXN0ZXJuJTIwbXVzaWNpYW58ZW58MXx8fHwxNzY3MDAyNzcxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+		description: "Rap poétique mêlant français et arabe, fusionnant rap urbain, raï et sonorités orientales",
+		image:"//public//img//Tif//Tif.jpg", 
+		
 		fullBio:
-			"Yasmine repousse les frontières de la musique arabe en fusionnant instruments traditionnels et production électronique contemporaine. Son style unique crée des ponts entre passé et futur.",
+			"TIF, de son vrai nom Toufik Bouhraoua, est un rappeur et chanteur algérien né à Alger et basé à Paris, qui s’est fait connaître en 2019 avec le single 3iniya, mêlant rap francophone et influences orientales. Après avoir fondé son label indépendant Houma Sweet Houma, il a sorti l’EP Houma Sweet Houma (2022) puis l’album/EP 1.6 (2023), où il explore nostalgie, exil et identité à travers un rap poétique qui fusionne français et arabe avec des sonorités chaâbi, raï et traditionnelles. Il collabore avec des artistes de la scène urbaine francophone et nord-africaine et continue de gagner en notoriété grâce à des morceaux comme Hinata, Shadow Boxing ou Amnesia, consolidant sa place comme l’une des voix montantes du rap francophone actuel.",
 	},
 	{
 		id: 4,
-		name: "Koffi & The Rhythm Keepers",
-		origin: "Accra, Ghana",
+		name: "Asake",
+		origin: "Nigéria",
 		culture: "Afro",
-		description: "Highlife ghanéen et percussions hypnotiques",
+		description: "Afrobeats énergique fusionnant afro-pop, fuji, amapiano et influences urbaines contemporaines",
 		image:
-			"https://images.unsplash.com/photo-1766916012957-8324354f7ae0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwbXVzaWMlMjBmZXN0aXZhbCUyMHBlcmZvcm1lcnxlbnwxfHx8fDE3NjcwMDI3NzB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+			"//public/img/asake/Asake.webp",
 		fullBio:
-			"Maîtres des percussions africaines, ce groupe perpétue la tradition du highlife ghanéen avec une énergie contagieuse qui transcende les générations.",
+			"Originaire de Lagos au Nigeria, Asake (Ahmed Ololade) est un chanteur, rappeur et auteur-compositeur qui s’est fait connaître grâce à une fusion unique d’afrobeats, fuji, amapiano et pop moderne. Son premier album *Mr. Money With The Vibe* (2022) a battu des records de streaming et l’a propulsé sur la scène mondiale, suivi par *Work of Art* (2023) puis *Lungu Boy* (2024), tous salués pour leur mix de rythmes africains et sonorités globales. Connu pour des titres comme “Sungba”, “Terminator” ou “Lonely at the Top”, et ses collaborations avec des artistes internationaux comme Wizkid, Travis Scott et Stormzy, Asake s’est imposé comme l’un des visages majeurs de l’afrobeats contemporain.",
 	},
 	{
 		id: 5,
-		name: "Marisol y su Banda",
-		origin: "Mexico City, Mexique",
-		culture: "Latino",
-		description: "Mariachi moderne avec des touches de jazz",
+		name: "Nancy Ajram",
+		origin: "Liban",
+		culture: "Arabe",
+		description: "Pop entraînante mêlant mélodies arabes classiques et arrangements pop moderne",
 		image:
-			"https://images.unsplash.com/photo-1622309855049-b67c6564c528?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYXRpbm8lMjBtdXNpY2lhbiUyMGNvbmNlcnR8ZW58MXx8fHwxNzY3MDAyNzcwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+			"//public/img/NancyAjram/nancy-ajram1.webp",
 		fullBio:
-			"Marisol réinvente le mariachi traditionnel en y incorporant des éléments de jazz et de musique contemporaine, créant un son unique et captivant.",
+			"Nancy Ajram est une chanteuse libanaise devenue l’une des figures emblématiques de la pop arabe. Elle commence sa carrière très jeune, remportant un concours de talents à 12 ans et sortant son premier album *Mihtagalak* à 15 ans. Son vrai tournant vient avec *Ya Salam* (2003) et le hit 'Akhasmak Ah’, qui la propulsent sur le devant de la scène arabe, suivis de succès internationaux comme *AhW Noss* et YaTabtab…Wa Dallaa*. Avec plus d’une dizaine d’albums, des hits comme *Enta Eih*, *Fi Hagat* ou *Sah Sah* et des collaborations modernes, elle s’impose par sa capacité à fusionner sonorités orientales et pop accessible, tout en accumulant records de ventes et reconnaissances mondiales.",
 	},
 	{
 		id: 6,
-		name: "Omar & The Desert Blues",
-		origin: "Marrakech, Maroc",
-		culture: "Arabe",
-		description: "Blues du désert et sonorités gnawa envoûtantes",
+		name: "Karol G",
+		origin: "Colombie",
+		culture: "Latino",
+		description: "Reggaeton et pop urbaine entraînants, fusionnant rythmes latins, mélodies accrocheuses et énergie moderne.",
 		image:
 			"https://images.unsplash.com/photo-1544266671-4d2166b22982?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmFiaWMlMjBtaWRkbGUlMjBlYXN0ZXJuJTIwbXVzaWNpYW58ZW58MXx8fHwxNzY3MDAyNzcxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
 		fullBio:
-			"Omar fusionne les traditions gnawa du Maroc avec le blues américain, créant un son hypnotique qui évoque les vastes étendues du désert.",
+			"Karol G, née Carolina Giraldo Navarro à Medellín en Colombie, est une chanteuse et compositrice de reggaeton et pop urbaine devenue une figure majeure de la scène latino mondiale. Elle se fait connaître grâce à des hits comme Ahora Me Llama et Tusa, et enchaîne les collaborations avec des artistes internationaux tels que Nicki Minaj, J Balvin ou Bad Bunny. Avec plusieurs albums à succès, dont Unstoppable et KG0516, Karol G combine rythmes urbains, mélodies pop et influences latines, s’imposant comme une voix incontournable du reggaeton contemporain.",
+	},
+	{
+		id: 7,
+		name: "Bad Bunny",
+		origin: "Porto Rico",
+		culture: "Latino",
+		description: "Reggaeton et trap latino innovants, mêlant rythmes caribéens, influences urbaines et énergie planétaire.",
+		image:
+			"//public/img/Badbunny/badbunny1.webp",
+		fullBio:
+			"Bad Bunny, de son vrai nom Benito Antonio Martínez Ocasio, est un chanteur, rappeur et compositeur portoricain qui a révolutionné la scène latine moderne. Il se fait connaître grâce à des titres comme Soy Peor et Dákiti, et ses albums X 100PRE, YHLQMDLG et Un Verano Sin Ti rencontrent un succès mondial. Connu pour ses collaborations avec J Balvin, Rosalía, Cardi B ou Drake, il combine reggaeton, trap latino et influences musicales variées tout en s’imposant comme une icône culturelle et un ambassadeur de la musique latino contemporaine.",
+	},
+	{
+		id: 8,
+		name: "Tems",
+		origin: "Nigéria",
+		culture: "Afro",
+		description: "Mélange d’afrobeats et de R&B introspectif, fusionnant voix soul profonde et sonorités alternatives modernes.",
+		image:
+			"//public/img/Tems/Tems.jpg",
+		fullBio:
+			"Tems (Temilade Openiyi), née à Lagos au Nigeria, est une chanteuse, auteure compositrice et productrice qui s’est imposée comme l’une des voix les plus singulières de la musique africaine contemporaine. Elle a d’abord attiré l’attention internationale en 2020 grâce à sa collaboration avec Wizkid sur le hit Essence, propulsé dans le top 10 du Billboard Hot 100, avant de collaborer avec Drake et d’autres stars mondiales. Après plusieurs EP salués par la critique, elle sort son premier album Born in the Wild en 2024, porté par des singles comme Love Me JeJe, qui lui valent des récompenses prestigieuses et confirment son rôle de figure majeure de l’afrobeats et du R&B moderne.",
+	},
+	{
+		id: 9,
+		name: "Saint Levant",
+		origin: "Palestine",
+		culture: "Arabe",
+		description: "Mélange innovant de hip-hop, R&B et pop multilingue, fusionnant rythmes arabes traditionnels, influences occidentales et textes en anglais, français et arabe.",
+		image:
+			"//public/img/saintLevant/SaintLevant.jpg",
+		fullBio:
+			"Saint Levant, de son vrai nom Marwan Abdelhamid, est un auteur-compositeur et interprète palestinien qui s’est fait connaître internationalement grâce au single viral Very Few Friends, combinant habilement trois langues et styles musicaux. Son premier EP From Gaza, With Love (2023) et son album Deira (2024) explorent thèmes d’identité, nostalgie et héritage, tout en fusionnant influences arabes, funk, hip-hop et pop contemporaine. Par ses collaborations avec artistes internationaux et son approche multilingue, il incarne une nouvelle vague de musique arabe qui trouve un écho mondial.",
 	},
 ];
 
