@@ -19,6 +19,7 @@
 	--color-accent: #621708;
 
 	--color-texte: #220901;
+	--color-clair: #ffff;
 
 	/* ===== TYPOGRAPHY ===== */
 	--font-title: Rakkas, serif;
@@ -41,5 +42,9 @@ body {
 	font-family: var(--font-text);
 }
 h1 {
+	font-family: var(--font-title);
+}
+
+h2 {
 	font-family: var(--font-title);
 }
