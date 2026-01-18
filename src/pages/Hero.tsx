@@ -1,4 +1,4 @@
-import { ArrowRight, Heart, Music, Users, Video } from "lucide-react";
+import { ArrowRight, Heart, Music, Users } from "lucide-react";
 import { motion } from "motion/react";
 import { Button } from "../Components/shared/button";
 
