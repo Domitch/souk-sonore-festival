@@ -73,7 +73,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
 							className="bg-[#f6aa1c] text-[#f5f1ea] hover:bg-[#f6aa1c] hover:text-[#f5f1ea] transition-all duration-300"
 						>
 							<Ticket className="mr-2 h-4 w-4" />
-							Acheter un pass
+							Réserver un pass
 						</Button>
 					</div>
 
@@ -123,7 +123,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
 								className="w-full bg-[#d4a574] text-[#0f0d0a] hover:bg-[#c97d5d] hover:text-[#f5f1ea]"
 							>
 								<Ticket className="mr-2 h-4 w-4" />
-								Acheter un pass
+								Réserver un pass
 							</Button>
 						</div>
 					</motion.div>
