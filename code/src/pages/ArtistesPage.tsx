@@ -20,8 +20,9 @@ const artists: Artist[] = [
 		name: "Shakira",
 		origin: "Colombie",
 		culture: "Latino",
-		description: "Pop vibrante mêlant rythmes latins et mondiaux, fusionnant danse, voix puissante et sonorités afro‑latines.",
-		image: "//public/img/shakira/Shakira.jpg",
+		description:
+			"Pop vibrante mêlant rythmes latins et mondiaux, fusionnant danse, voix puissante et sonorités afro‑latines.",
+		image: "/img/shakira/Shakira.jpg",
 		fullBio:
 			"Shakira Isabel Mebarak Ripoll, née en 1977 à Barranquilla, construit une carrière internationale dès l’adolescence avant de s’imposer comme l’une des artistes latines les plus influentes au monde. Autrice, compositrice et interprète, elle enchaîne les succès mondiaux en espagnol et en anglais, tout en développant une image de performeuse complète et de marque globale. Parallèlement à la musique, elle s’investit dans l’entrepreneuriat, les jurys télévisés et des actions philanthropiques, consolidant une carrière durable et stratégique à l’échelle internationale.",
 	},
@@ -30,9 +31,9 @@ const artists: Artist[] = [
 		name: "Rema",
 		origin: "Nigéria",
 		culture: "Afro",
-		description: "Afrobeats modernes aux influences pop, trap et sonorités globales",
-		image:
-			"//public/img/rema/rema.jpg",
+		description:
+			"Afrobeats modernes aux influences pop, trap et sonorités globales",
+		image: "/img/rema/rema.jpg",
 		fullBio:
 			"Rema, originaire de Benin City au Nigeria, s’est imposé sur la scène afrobeats avec ses mixtapes et son premier album Rave & Roses, mêlant rythmes africains, trap et pop globale. Il a enchaîné les collaborations internationales avec des artistes comme Selena Gomez, Chris Brown ou J Balvin, consolidant son style hybride et sa place parmi les stars mondiales de la musique contemporaine.",
 	},
@@ -41,9 +42,10 @@ const artists: Artist[] = [
 		name: "Tif",
 		origin: "Algérie",
 		culture: "Arabe",
-		description: "Rap poétique mêlant français et arabe, fusionnant rap urbain, raï et sonorités orientales",
-		image:"//public//img//Tif//Tif.jpg", 
-		
+		description:
+			"Rap poétique mêlant français et arabe, fusionnant rap urbain, raï et sonorités orientales",
+		image: "/img/Tif/Tif.jpg",
+
 		fullBio:
 			"TIF, de son vrai nom Toufik Bouhraoua, est un rappeur et chanteur algérien né à Alger et basé à Paris, qui s’est fait connaître en 2019 avec le single 3iniya, mêlant rap francophone et influences orientales. Après avoir fondé son label indépendant Houma Sweet Houma, il a sorti l’EP Houma Sweet Houma (2022) puis l’album/EP 1.6 (2023), où il explore nostalgie, exil et identité à travers un rap poétique qui fusionne français et arabe avec des sonorités chaâbi, raï et traditionnelles. Il collabore avec des artistes de la scène urbaine francophone et nord-africaine et continue de gagner en notoriété grâce à des morceaux comme Hinata, Shadow Boxing ou Amnesia, consolidant sa place comme l’une des voix montantes du rap francophone actuel.",
 	},
@@ -52,9 +54,9 @@ const artists: Artist[] = [
 		name: "Asake",
 		origin: "Nigéria",
 		culture: "Afro",
-		description: "Afrobeats énergique fusionnant afro-pop, fuji, amapiano et influences urbaines contemporaines",
-		image:
-			"//public/img/asake/Asake.webp",
+		description:
+			"Afrobeats énergique fusionnant afro-pop, fuji, amapiano et influences urbaines contemporaines",
+		image: "/img/asake/Asake.webp",
 		fullBio:
 			"Originaire de Lagos au Nigeria, Asake (Ahmed Ololade) est un chanteur, rappeur et auteur-compositeur qui s’est fait connaître grâce à une fusion unique d’afrobeats, fuji, amapiano et pop moderne. Son premier album *Mr. Money With The Vibe* (2022) a battu des records de streaming et l’a propulsé sur la scène mondiale, suivi par *Work of Art* (2023) puis *Lungu Boy* (2024), tous salués pour leur mix de rythmes africains et sonorités globales. Connu pour des titres comme “Sungba”, “Terminator” ou “Lonely at the Top”, et ses collaborations avec des artistes internationaux comme Wizkid, Travis Scott et Stormzy, Asake s’est imposé comme l’un des visages majeurs de l’afrobeats contemporain.",
 	},
@@ -63,9 +65,9 @@ const artists: Artist[] = [
 		name: "Nancy Ajram",
 		origin: "Liban",
 		culture: "Arabe",
-		description: "Pop entraînante mêlant mélodies arabes classiques et arrangements pop moderne",
-		image:
-			"//public/img/NancyAjram/nancy-ajram1.webp",
+		description:
+			"Pop entraînante mêlant mélodies arabes classiques et arrangements pop moderne",
+		image: "/img/NancyAjram/nancy-ajram1.webp",
 		fullBio:
 			"Nancy Ajram est une chanteuse libanaise devenue l’une des figures emblématiques de la pop arabe. Elle commence sa carrière très jeune, remportant un concours de talents à 12 ans et sortant son premier album *Mihtagalak* à 15 ans. Son vrai tournant vient avec *Ya Salam* (2003) et le hit 'Akhasmak Ah’, qui la propulsent sur le devant de la scène arabe, suivis de succès internationaux comme *AhW Noss* et YaTabtab…Wa Dallaa*. Avec plus d’une dizaine d’albums, des hits comme *Enta Eih*, *Fi Hagat* ou *Sah Sah* et des collaborations modernes, elle s’impose par sa capacité à fusionner sonorités orientales et pop accessible, tout en accumulant records de ventes et reconnaissances mondiales.",
 	},
@@ -74,9 +76,9 @@ const artists: Artist[] = [
 		name: "Karol G",
 		origin: "Colombie",
 		culture: "Latino",
-		description: "Reggaeton et pop urbaine entraînants, fusionnant rythmes latins, mélodies accrocheuses et énergie moderne.",
-		image:
-			"https://images.unsplash.com/photo-1544266671-4d2166b22982?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmFiaWMlMjBtaWRkbGUlMjBlYXN0ZXJuJTIwbXVzaWNpYW58ZW58MXx8fHwxNzY3MDAyNzcxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+		description:
+			"Reggaeton et pop urbaine entraînants, fusionnant rythmes latins, mélodies accrocheuses et énergie moderne.",
+		image: "/img/karolg/karol_g.jpeg",
 		fullBio:
 			"Karol G, née Carolina Giraldo Navarro à Medellín en Colombie, est une chanteuse et compositrice de reggaeton et pop urbaine devenue une figure majeure de la scène latino mondiale. Elle se fait connaître grâce à des hits comme Ahora Me Llama et Tusa, et enchaîne les collaborations avec des artistes internationaux tels que Nicki Minaj, J Balvin ou Bad Bunny. Avec plusieurs albums à succès, dont Unstoppable et KG0516, Karol G combine rythmes urbains, mélodies pop et influences latines, s’imposant comme une voix incontournable du reggaeton contemporain.",
 	},
@@ -85,9 +87,9 @@ const artists: Artist[] = [
 		name: "Bad Bunny",
 		origin: "Porto Rico",
 		culture: "Latino",
-		description: "Reggaeton et trap latino innovants, mêlant rythmes caribéens, influences urbaines et énergie planétaire.",
-		image:
-			"//public/img/Badbunny/badbunny1.webp",
+		description:
+			"Reggaeton et trap latino innovants, mêlant rythmes caribéens, influences urbaines et énergie planétaire.",
+		image: "/img/Badbunny/badbunny1.webp",
 		fullBio:
 			"Bad Bunny, de son vrai nom Benito Antonio Martínez Ocasio, est un chanteur, rappeur et compositeur portoricain qui a révolutionné la scène latine moderne. Il se fait connaître grâce à des titres comme Soy Peor et Dákiti, et ses albums X 100PRE, YHLQMDLG et Un Verano Sin Ti rencontrent un succès mondial. Connu pour ses collaborations avec J Balvin, Rosalía, Cardi B ou Drake, il combine reggaeton, trap latino et influences musicales variées tout en s’imposant comme une icône culturelle et un ambassadeur de la musique latino contemporaine.",
 	},
@@ -96,9 +98,9 @@ const artists: Artist[] = [
 		name: "Tems",
 		origin: "Nigéria",
 		culture: "Afro",
-		description: "Mélange d’afrobeats et de R&B introspectif, fusionnant voix soul profonde et sonorités alternatives modernes.",
-		image:
-			"//public/img/Tems/Tems.jpg",
+		description:
+			"Mélange d’afrobeats et de R&B introspectif, fusionnant voix soul profonde et sonorités alternatives modernes.",
+		image: "/img/Tems/Tems.jpg",
 		fullBio:
 			"Tems (Temilade Openiyi), née à Lagos au Nigeria, est une chanteuse, auteure compositrice et productrice qui s’est imposée comme l’une des voix les plus singulières de la musique africaine contemporaine. Elle a d’abord attiré l’attention internationale en 2020 grâce à sa collaboration avec Wizkid sur le hit Essence, propulsé dans le top 10 du Billboard Hot 100, avant de collaborer avec Drake et d’autres stars mondiales. Après plusieurs EP salués par la critique, elle sort son premier album Born in the Wild en 2024, porté par des singles comme Love Me JeJe, qui lui valent des récompenses prestigieuses et confirment son rôle de figure majeure de l’afrobeats et du R&B moderne.",
 	},
@@ -107,9 +109,9 @@ const artists: Artist[] = [
 		name: "Saint Levant",
 		origin: "Palestine",
 		culture: "Arabe",
-		description: "Mélange innovant de hip-hop, R&B et pop multilingue, fusionnant rythmes arabes traditionnels, influences occidentales et textes en anglais, français et arabe.",
-		image:
-			"//public/img/saintLevant/SaintLevant.jpg",
+		description:
+			"Mélange innovant de hip-hop, R&B et pop multilingue, fusionnant rythmes arabes traditionnels, influences occidentales et textes en anglais, français et arabe.",
+		image: "/img/saintLevant/SaintLevant.jpg",
 		fullBio:
 			"Saint Levant, de son vrai nom Marwan Abdelhamid, est un auteur-compositeur et interprète palestinien qui s’est fait connaître internationalement grâce au single viral Very Few Friends, combinant habilement trois langues et styles musicaux. Son premier EP From Gaza, With Love (2023) et son album Deira (2024) explorent thèmes d’identité, nostalgie et héritage, tout en fusionnant influences arabes, funk, hip-hop et pop contemporaine. Par ses collaborations avec artistes internationaux et son approche multilingue, il incarne une nouvelle vague de musique arabe qui trouve un écho mondial.",
 	},
@@ -193,16 +195,18 @@ export function ArtistesPage() {
 							>
 								{/* Image */}
 								<div className="relative h-80 overflow-hidden">
-									{/* <ImageWithFallback
+									<img
 										src={artist.image}
 										alt={artist.name}
 										className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-									/> */}
+									/>
 									<div className="absolute inset-0 bg-gradient-to-t from-[#0f0d0a] via-[#0f0d0a]/50 to-transparent" />
 
 									{/* Culture Badge */}
 									<div
-										className={`absolute top-4 right-4 ${getCultureColor(artist.culture)} text-white px-4 py-2 rounded-full text-sm`}
+										className={`absolute top-4 right-4 ${getCultureColor(
+											artist.culture,
+										)} text-white px-4 py-2 rounded-full text-sm`}
 									>
 										{artist.culture}
 									</div>
@@ -249,11 +253,11 @@ export function ArtistesPage() {
 						>
 							{/* Modal Image */}
 							<div className="relative h-96">
-								{/* <ImageWithFallback
+								<img
 									src={selectedArtist.image}
 									alt={selectedArtist.name}
 									className="w-full h-full object-cover"
-								/> */}
+								/>
 								<div className="absolute inset-0 bg-gradient-to-t from-[#1a1612] via-transparent to-transparent" />
 								<button
 									type="button"
@@ -263,7 +267,9 @@ export function ArtistesPage() {
 									<X size={24} />
 								</button>
 								<div
-									className={`absolute top-4 left-4 ${getCultureColor(selectedArtist.culture)} text-white px-4 py-2 rounded-full`}
+									className={`absolute top-4 left-4 ${getCultureColor(
+										selectedArtist.culture,
+									)} text-white px-4 py-2 rounded-full`}
 								>
 									{selectedArtist.culture}
 								</div>

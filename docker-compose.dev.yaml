@@ -23,16 +23,3 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-
-  mongodb:
-    image: mongo:8.2
-    restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root 
-      MONGO_INITDB_ROOT_PASSWORD: root 
-    ports:
-      - 27017:27017
-    volumes:
-      - ./code/mongodb:/app
-      - ./mongodb-data:/etc/mongo/
-    working_dir: /app
