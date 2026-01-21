@@ -1,5 +1,5 @@
 import express from "express";
-import OriginsController from "../controller/origins_controller";
+import OriginsController from "../controller/origin_controller";
 
 class OriginsRouter {
   // routeur express

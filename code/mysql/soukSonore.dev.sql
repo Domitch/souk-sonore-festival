@@ -1,11 +1,11 @@
 
-DROP DATABASE IF EXISTS soukSonore;
+DROP DATABASE IF EXISTS souksonore;
 
 -- créer la base de données
-CREATE DATABASE soukSonore;
+CREATE DATABASE souksonore;
 
 -- créer tables
-CREATE TABLE soukSonore.artist(
+CREATE TABLE souksonore.artist(
     id TINYINT UNSIGNED AUTO_INCREMENT primary key,
     name VARCHAR(150) NOT NULL,
     description VARCHAR(350) NOT NULL,
@@ -14,17 +14,17 @@ CREATE TABLE soukSonore.artist(
     INDEX(name)
 );
 
-CREATE TABLE soukSonore.style(
+CREATE TABLE souksonore.style(
     id TINYINT UNSIGNED AUTO_INCREMENT primary key,
     name VARCHAR(250) NOT NULL,
     INDEX(name)
 );
-CREATE TABLE soukSonore.origin(
+CREATE TABLE souksonore.origin(
     id TINYINT UNSIGNED AUTO_INCREMENT primary key,
     name VARCHAR(250) NOT NULL,
     INDEX(name)
 );
-CREATE TABLE soukSonore.artist_style(
+CREATE TABLE souksonore.artist_style(
     artist_id TINYINT UNSIGNED,
     style_id TINYINT UNSIGNED,
     FOREIGN KEY (artist_id)
@@ -33,7 +33,7 @@ CREATE TABLE soukSonore.artist_style(
     REFERENCES style(id),
     PRIMARY KEY (artist_id,style_id) 
 );
-CREATE TABLE soukSonore.artist_origin(
+CREATE TABLE souksonore.artist_origin(
     artist_id TINYINT UNSIGNED,
     origin_id TINYINT UNSIGNED,
     FOREIGN KEY (artist_id)
@@ -43,7 +43,7 @@ CREATE TABLE soukSonore.artist_origin(
     PRIMARY KEY (artist_id,origin_id) 
 );
 
-INSERT INTO soukSonore.artist(name, description, image, bio) values (
+INSERT INTO souksonore.artist(name, description, image, bio) values (
 		'Shakira',
 			'Pop vibrante mêlant rythmes latins et mondiaux, fusionnant danse, voix puissante et sonorités afro‑latines.',
 		 'Shakira.jpg',
@@ -98,12 +98,12 @@ INSERT INTO soukSonore.artist(name, description, image, bio) values (
         'Saint Levant, de son vrai nom Marwan Abdelhamid, est un auteur-compositeur et interprète palestinien qui s’est fait connaître internationalement grâce au single viral Very Few Friends, combinant habilement trois langues et styles musicaux. Son premier EP From Gaza, With Love (2023) et son album Deira (2024) explorent thèmes d’identité, nostalgie et héritage, tout en fusionnant influences arabes, funk, hip-hop et pop contemporaine. Par ses collaborations avec artistes internationaux et son approche multilingue, il incarne une nouvelle vague de musique arabe qui trouve un écho mondial.'
 	);
 
-    INSERT INTO soukSonore.style(name) values 
+    INSERT INTO souksonore.style(name) values 
     ('Afro'),
     ('Latino'),
     ('Arabe');
 
-    INSERT INTO soukSonore.origin(name) values 
+    INSERT INTO souksonore.origin(name) values 
     ('Colombie'),
     ('Nigeria'),
     ('Algérie'),
@@ -112,7 +112,7 @@ INSERT INTO soukSonore.artist(name, description, image, bio) values (
     ('Palestine');
 
 
-    INSERT INTO soukSonore.artist_style
+    INSERT INTO souksonore.artist_style
     values 
     (1, 2),
     (2, 1),
@@ -124,7 +124,7 @@ INSERT INTO soukSonore.artist(name, description, image, bio) values (
     (8, 1),
     (9, 3);
 
-    INSERT INTO soukSonore.artist_origin
+    INSERT INTO souksonore.artist_origin
     values 
     (1, 1),
     (2, 2),

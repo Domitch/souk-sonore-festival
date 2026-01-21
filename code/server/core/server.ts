@@ -1,5 +1,7 @@
 import cors from "cors";
 import express from "express";
+import ArtistRouter from "../routers/artists_router";
+import HomepageRouter from "../routers/homepage_router";
 
 class Server {
 	// propriétés
@@ -29,18 +31,8 @@ class Server {
 	// liste des routeurs
 	private routersList = () => {
 		// créer un préfixe à toutes les routes inclus dans un routeur
-		// this.router.use("/api", new HomePageRouter().getRoutes());
-		// this.router.use("/api/equivalence", new EquivalenceRouter().getRoutes());
-		// this.router.use("/api/article", new ArticleRouter().getRoutes());
-		// this.router.use("/api/atelier", new AtelierRouter().getRoutes());
-		// this.router.use("/api/categorie", new CategorieRouter().getRoutes());
-		// this.router.use(
-		// 	"/api/centre_formation",
-		// 	new CentreFormationRouter().getRoutes(),
-		// );
-		// this.router.use("/api/formation", new FormationRouter().getRoutes());
-		// this.router.use("/api/inspirations", new InspirationsRouter().getRoutes());
-		// this.router.use("/api/role", new RoleRouter().getRoutes());
+		this.router.use("/api", new HomepageRouter().getRoutes());
+		this.router.use("/api/artist", new ArtistRouter().getRoutes());
 	};
 
 	// demarrer le server

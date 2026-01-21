@@ -1,5 +1,5 @@
 import express from "express";
-import StylesController from "../controller/styles_controller";
+import StylesController from "../controller/style_controller";
 
 class StylesRouter {
   // routeur express
