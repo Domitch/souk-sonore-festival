@@ -31,8 +31,12 @@ class ArtistRepository {
 			from ${process.env.MYSQL_DATABASE}.${this.table}
 			left join ${process.env.MYSQL_DATABASE}.artist_style
 			on ${this.table}.id = artist_style.artist_id
-			left join ${process.env.MYSQL_DATABASE}.artist_origin
+			left join ${process.env.MYSQL_DATABASE}.style
+			on style.id = artist_style.style_id
+			joint ${process.env.MYSQL_DATABASE}.artist_origin 
 			on artist.id = artist_origin.artist_id
+			joint ${process.env.MYSQL_DATABASE}.origin
+			on artist_origin.origin_id = origin.id
 			group by ${this.table}.id;
 			`;
 
