@@ -1,11 +1,11 @@
 import { use } from "react";
 import { Link } from "react-router";
-import InspirationsApiService from "../../../services/inspirations_api_service";
+import ArtistApiService from "../../../services/artists_api_service";
 
 const AdminArtistsHomeContent = () => {
 	// récuperation des menus
 	// new = instansier un objet d'une classe
-	const results = use(new ArtistsApiService().selectAll()).data;
+	const results = use(new ArtistApiService().selectAll()).data;
 	// console.log(results);
 
 	return (

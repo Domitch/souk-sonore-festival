@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import type { ZodIssue } from "zod/v3";
 import type { Artists } from "../../../../models/artists";
 import type { AdminArtistsFormContentProps } from "../../../models/props/admin/admin_artists_form_content_props";
+import ArtistApiService from "../../../services/artists_api_service";
 
 const AdminArtistsFormContent = ({
 	styles,
@@ -110,8 +111,8 @@ const AdminArtistsFormContent = ({
 
 		// requête HTTP vers l'API
 		const process = dataToUpdate
-			? await new ArtistsApiService().update(formData)
-			: await new ArtistsApiService().insert(formData);
+			? await new ArtistApiService().update(formData)
+			: await new ArtistApiService().insert(formData);
 
 		// console.log(process);
 
