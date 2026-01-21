@@ -4,8 +4,8 @@ import type { Origins } from "../../../../models/origins";
 import type { Styles } from "../../../../models/styles";
 
 type AdminArtistsFormContentProps = {
-	styless: Styles[];
-	origines: Origins[];
+	styles: Styles[];
+	origins: Origins[];
 	validator: (data: Partial<Artists>) => Promise<Partial<Artists> | ZodError>;
 	dataToUpdate: Artists | undefined;
 };
