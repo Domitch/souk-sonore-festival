@@ -136,7 +136,7 @@ class ArtistRepository {
 
 			// execution de la rêquete
 			// si la rêquete posséde des variables, utiliser le paramètre de la méthode
-			sql = ` insert into ${process.env.MYSQL_DATABASE}.categorie_inspirations value ${joinsIds};`;
+			sql = ` insert into ${process.env.MYSQL_DATABASE}.artist_style value ${joinsIds};`;
 			const [query] = await connection.execute(sql);
 
 			// valider la transaction
