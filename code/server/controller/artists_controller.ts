@@ -1,149 +1,154 @@
-class ArtistsController {
-  // méthode GET /api/product
-  public index = async (_req: Request, res: Response) => {
-    const results = await new ArtistsRepository().selectAll();
+import type { Request, Response } from "express";
+import type { Artists } from "../../models/artists";
+import ArtistRepository from "../repository/artist_repository";
+import FileService from "../services/file_services";
 
-    // gestion d'erreur
-    if (results instanceof Error) {
-      res.status(400).json({
-        status: 400,
-        message:
-          process.env.NODE_ENV === "production" ? "Error" : results.message,
-      });
-      return;
-    }
+class ArtistController {
+	// méthode GET /api/product
+	public index = async (_req: Request, res: Response) => {
+		const results = await new ArtistRepository().selectAll();
 
-    // renvoyer la réponse
-    res.status(200).json({
-      status: 200,
-      message: "c'est l'artiste'",
-      data: results,
-    });
-  };
+		// gestion d'erreur
+		if (results instanceof Error) {
+			res.status(400).json({
+				status: 400,
+				message:
+					process.env.NODE_ENV === "production" ? "Error" : results.message,
+			});
+			return;
+		}
 
-  // méthode GET /api/product
-  public selectOne = async (req: Request, res: Response) => {
-    const { id } = req.params;
+		// renvoyer la réponse
+		res.status(200).json({
+			status: 200,
+			message: "c'est l'artiste'",
+			data: results,
+		});
+	};
 
-    const results = await new ArtistsRepository().selectOne({
-      id: id as unknown as number,
-    });
+	// méthode GET /api/product
+	public selectOne = async (req: Request, res: Response) => {
+		const { id } = req.params;
 
-    // gestion d'erreur
-    if (results instanceof Error) {
-      res.status(400).json({
-        status: 400,
-        message:
-          process.env.NODE_ENV === "production" ? "Error" : results.message,
-      });
-      return;
-    }
+		const results = await new ArtistRepository().selectOne({
+			id: id as unknown as number,
+		});
 
-    // renvoyer la réponse
-    res.status(200).json({
-      status: 200,
-      message: "c'est le produit",
-      data: results,
-    });
-  };
+		// gestion d'erreur
+		if (results instanceof Error) {
+			res.status(400).json({
+				status: 400,
+				message:
+					process.env.NODE_ENV === "production" ? "Error" : results.message,
+			});
+			return;
+		}
 
-  // méthode POST /api/product
-  public insert = async (req: Request, res: Response) => {
-    // req files permet de récuperer les fichiers transférés
-    const file = (
-      req.files as Express.Multer.File[]
-    ).shift() as Express.Multer.File;
-    // instancier le service de fichiers
-    const fileService = new FileService();
+		// renvoyer la réponse
+		res.status(200).json({
+			status: 200,
+			message: "c'est le produit",
+			data: results,
+		});
+	};
 
-    // renommer le fichier transféré et récupérer le nom complet
-    const fullname = await fileService.rename(file);
+	// méthode POST /api/product
+	public insert = async (req: Request, res: Response) => {
+		// req files permet de récuperer les fichiers transférés
+		const file = (
+			req.files as Express.Multer.File[]
+		).shift() as Express.Multer.File;
+		// instancier le service de fichiers
+		const fileService = new FileService();
 
-    const results = await new ArtistRepository().insert({
-      ...req.body,
-      image: fullname,
-    });
+		// renommer le fichier transféré et récupérer le nom complet
+		const fullname = await fileService.rename(file);
 
-    // gestion d'erreur
-    if (results instanceof Error) {
-      res.status(400).json({
-        status: 400,
-        message:
-          process.env.NODE_ENV === "production" ? "Error" : results.message,
-      });
-      return;
-    }
+		const results = await new ArtistRepository().insert({
+			...req.body,
+			image: fullname,
+		});
 
-    // renvoyer la réponse
-    res.status(201).json({
-      status: 201,
-      message: "Artiste inséré avec succès",
-      data: results,
-    });
-  };
+		// gestion d'erreur
+		if (results instanceof Error) {
+			res.status(400).json({
+				status: 400,
+				message:
+					process.env.NODE_ENV === "production" ? "Error" : results.message,
+			});
+			return;
+		}
 
-  // méthode PUT /api/product
-  public update = async (req: Request, res: Response) => {
-    const file = (
-      req.files as Express.Multer.File[]
-    ).shift() as Express.Multer.File;
-    // instancier le service de fichiers
-    const fileService = new FileService();
+		// renvoyer la réponse
+		res.status(201).json({
+			status: 201,
+			message: "Artiste inséré avec succès",
+			data: results,
+		});
+	};
 
-    let fullname: string;
-    if (file) {
-      // renommer le fichier transféré et récupérer le nom complet avec extension
+	// méthode PUT /api/product
+	public update = async (req: Request, res: Response) => {
+		const file = (
+			req.files as Express.Multer.File[]
+		).shift() as Express.Multer.File;
+		// instancier le service de fichiers
+		const fileService = new FileService();
 
-      fullname = await fileService.rename(file);
-    } else {
-      fullname = ((await new ArtistsRepository().selectOne(req.body)) as Artist)
-        .image;
-    }
+		let fullname: string;
+		if (file) {
+			// renommer le fichier transféré et récupérer le nom complet avec extension
 
-    const results = await new ArtistsRepository().update({
-      ...req.body,
-      image: fullname,
-    });
+			fullname = await fileService.rename(file);
+		} else {
+			fullname = ((await new ArtistRepository().selectOne(req.body)) as Artists)
+				.image;
+		}
 
-    // gestion d'erreur
-    if (results instanceof Error) {
-      res.status(400).json({
-        status: 400,
-        message:
-          process.env.NODE_ENV === "production" ? "Error" : results.message,
-      });
-      return;
-    }
+		const results = await new ArtistRepository().update({
+			...req.body,
+			image: fullname,
+		});
 
-    // renvoyer la réponse
-    res.status(200).json({
-      status: 200,
-      message: "Updated",
-      data: results,
-    });
-  };
+		// gestion d'erreur
+		if (results instanceof Error) {
+			res.status(400).json({
+				status: 400,
+				message:
+					process.env.NODE_ENV === "production" ? "Error" : results.message,
+			});
+			return;
+		}
 
-  // méthode DELETE /api/product
-  public delete = async (req: Request, res: Response) => {
-    const results = await new ArtistsRepository().delete(req.body);
+		// renvoyer la réponse
+		res.status(200).json({
+			status: 200,
+			message: "Updated",
+			data: results,
+		});
+	};
 
-    // gestion d'erreur
-    if (results instanceof Error) {
-      res.status(400).json({
-        status: 400,
-        message:
-          process.env.NODE_ENV === "production" ? "Error" : results.message,
-      });
-      return;
-    }
+	// méthode DELETE /api/product
+	public delete = async (req: Request, res: Response) => {
+		const results = await new ArtistRepository().delete(req.body);
 
-    // renvoyer la réponse
-    res.status(200).json({
-      status: 200,
-      message: "Deleted",
-      data: results,
-    });
-  };
+		// gestion d'erreur
+		if (results instanceof Error) {
+			res.status(400).json({
+				status: 400,
+				message:
+					process.env.NODE_ENV === "production" ? "Error" : results.message,
+			});
+			return;
+		}
+
+		// renvoyer la réponse
+		res.status(200).json({
+			status: 200,
+			message: "Deleted",
+			data: results,
+		});
+	};
 }
 
-export default ArtistsController;
+export default ArtistController;
