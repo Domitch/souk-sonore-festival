@@ -2,6 +2,8 @@ import cors from "cors";
 import express from "express";
 import ArtistRouter from "../routers/artists_router";
 import HomepageRouter from "../routers/homepage_router";
+import OriginsRouter from "../routers/origins_router";
+import StylesRouter from "../routers/styles_router";
 
 class Server {
 	// propriétés
@@ -33,6 +35,8 @@ class Server {
 		// créer un préfixe à toutes les routes inclus dans un routeur
 		this.router.use("/api", new HomepageRouter().getRoutes());
 		this.router.use("/api/artist", new ArtistRouter().getRoutes());
+		this.router.use("/api/artist/origins", new OriginsRouter().getRoutes());
+		this.router.use("/api/artist/styles", new StylesRouter().getRoutes());
 	};
 
 	// demarrer le server
