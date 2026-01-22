@@ -103,10 +103,19 @@ class ArtistRepository {
 
 			await connection.execute(sql, data);
 
-			// Récupérer l'id inséré
-			const [[{ insertId }]] = (await connection.execute(
-				`SELECT LAST_INSERT_ID() as insertId;`,
-			)) as any;
+			// deuxième rêquete SQL
+			sql = `SET @id = LAST_INSERT_ID();`;
+			await connection.execute(sql, data);
+			// troixième rêquete
+			// INSERT INTO codefilles.inspirations
+			// VALUES
+			// (1,@id),
+			// (2,@id),
+			// (3,@id);
+			// split : extraire les données d'une chaîne de caractéres en array
+			//  1,2,3 >>[1,2,3]
+			// map[1,2,3] >> [(1,@id), (2,@id),(3,@id)]
+			// join[(1,@id), (2,@id),(3,@id))]
 
 			// Hydrater artist_style
 			if (data.styles_ids) {
@@ -115,10 +124,21 @@ class ArtistRepository {
 					.map((value) => `(${value}, ${insertId})`)
 					.join(",");
 
-				await connection.execute(
-					`INSERT INTO ${process.env.MYSQL_DATABASE}.artist_style (style_id, artist_id) VALUES ${joinsIds};`,
-				);
-			}
+			// execution de la rêquete
+			// si la rêquete posséde des variables, utiliser le paramètre de la méthode
+			sql = ` insert into ${process.env.MYSQL_DATABASE}.artist_styles value ${joinsIds};`;
+
+			// autre
+			await connection.execute(sql, data);
+
+			const joinsIds1 = (data.origins_ids as string)
+				?.split(",")
+				.map((value) => `(${value}, @id)`)
+				.join();
+
+			sql = ` insert into ${process.env.MYSQL_DATABASE}.artist_origins value ${joinsIds1};`;
+
+			const [query] = await connection.execute(sql);
 
 			await connection.commit();
 

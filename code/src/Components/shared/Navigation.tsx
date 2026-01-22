@@ -17,6 +17,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
 		{ id: "artistes", label: "Artistes" },
 		{ id: "billetterie", label: "Billetterie" },
 		{ id: "contact", label: "Contact" },
+		{ id: "admin", label: "Admin" },
 	];
 
 	return (
