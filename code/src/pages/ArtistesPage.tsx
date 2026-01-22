@@ -2,6 +2,7 @@ import { MapPin, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import type { Artists } from "../../models/artists";
+import type { Origins } from "../../models/origins";
 import ArtistApiService from "../services/artists_api_service";
 
 export function ArtistesPage() {
@@ -11,6 +12,7 @@ export function ArtistesPage() {
 	);
 
 	const [artists, setArtists] = useState<Artists[]>([]);
+
 	useEffect(() => {
 		new ArtistApiService()
 			.selectAll()
@@ -18,22 +20,20 @@ export function ArtistesPage() {
 	}, []);
 
 	const filteredArtists =
-		filter === "All"
-			? artists
-			: artists.filter((artist) => artist.culture === filter);
+		filter === "All" ? artists : artists.filter((artist) => artist);
 
-	const getCultureColor = (culture: string) => {
-		switch (culture) {
-			case "Afro":
-				return "bg-[#c97d5d]";
-			case "Latino":
-				return "bg-[#f6aa1c]";
-			case "Arabe":
-				return "bg-[#4a5f8c]";
-			default:
-				return "bg-[#f6aa1c]";
-		}
-	};
+	// const getCultureColor = (culture: string) => {
+	// 	switch (culture) {
+	// 		case "Afro":
+	// 			return "bg-[#c97d5d]";
+	// 		case "Latino":
+	// 			return "bg-[#f6aa1c]";
+	// 		case "Arabe":
+	// 			return "bg-[#4a5f8c]";
+	// 		default:
+	// 			return "bg-[#f6aa1c]";
+	// 	}
+	// };
 
 	return (
 		<div className="min-h-screen pt-20 bg-gradient-to-b from-[#220901] via-[#220901] to-[#220901]">
@@ -48,6 +48,7 @@ export function ArtistesPage() {
 					<h1 className="text-5xl sm:text-6xl mb-6 text-[#f5f1ea]">
 						Les Artistes
 					</h1>
+
 					<p className="text-xl text-[#b8a99a] max-w-3xl mx-auto mb-12">
 						Découvrez les artistes exceptionnels qui feront vibrer Souk Sonore
 						au rythme de leurs cultures et traditions musicales.
@@ -90,20 +91,21 @@ export function ArtistesPage() {
 								{/* Image */}
 								<div className="relative h-80 overflow-hidden">
 									<img
-										src={artist.image}
+										src={`/img/${artist.image}`}
 										alt={artist.name}
 										className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
 									/>
+
 									<div className="absolute inset-0 bg-gradient-to-t from-[#0f0d0a] via-[#0f0d0a]/50 to-transparent" />
 
 									{/* Culture Badge */}
-									<div
+									{/* <div
 										className={`absolute top-4 right-4 ${getCultureColor(
 											artist.culture,
 										)} text-white px-4 py-2 rounded-full text-sm`}
 									>
 										{artist.culture}
-									</div>
+									</div> */}
 								</div>
 
 								{/* Content */}
@@ -111,13 +113,20 @@ export function ArtistesPage() {
 									<h3 className="text-2xl mb-2 text-[#f5f1ea]">
 										{artist.name}
 									</h3>
+
 									<div className="flex items-center gap-2 mb-3 text-[#d4a574]">
 										<MapPin className="w-4 h-4" />
-										<span className="text-sm">{artist.origin}</span>
+										<span className="text-sm">
+											{(artist.origins as unknown as Origins[])
+												.map((origin) => origin.name)
+												.join(", ")}
+										</span>
 									</div>
+
 									<p className="text-[#b8a99a] leading-relaxed">
 										{artist.description}
 									</p>
+
 									<div className="mt-4 text-[#d4a574] group-hover:translate-x-2 transition-transform inline-block">
 										En savoir plus →
 									</div>
@@ -152,7 +161,9 @@ export function ArtistesPage() {
 									alt={selectedArtist.name}
 									className="w-full h-full object-cover"
 								/>
+
 								<div className="absolute inset-0 bg-gradient-to-t from-[#1a1612] via-transparent to-transparent" />
+
 								<button
 									type="button"
 									onClick={() => setSelectedArtist(null)}
@@ -160,13 +171,14 @@ export function ArtistesPage() {
 								>
 									<X size={24} />
 								</button>
-								<div
+
+								{/* <div
 									className={`absolute top-4 left-4 ${getCultureColor(
 										selectedArtist.culture,
 									)} text-white px-4 py-2 rounded-full`}
 								>
 									{selectedArtist.culture}
-								</div>
+								</div> */}
 							</div>
 
 							{/* Modal Content */}
@@ -174,13 +186,20 @@ export function ArtistesPage() {
 								<h2 className="text-4xl mb-3 text-[#f5f1ea]">
 									{selectedArtist.name}
 								</h2>
+
 								<div className="flex items-center gap-2 mb-6 text-[#d4a574]">
 									<MapPin className="w-5 h-5" />
-									<span>{selectedArtist.origin}</span>
+									<span>
+										{(selectedArtist.origins as unknown as Origins[])
+											.map((origin) => origin.name)
+											.join(", ")}
+									</span>
 								</div>
+
 								<p className="text-xl text-[#e8d5b7] mb-6 italic">
 									{selectedArtist.description}
 								</p>
+
 								<p className="text-[#b8a99a] leading-relaxed text-lg">
 									{selectedArtist.bio}
 								</p>
