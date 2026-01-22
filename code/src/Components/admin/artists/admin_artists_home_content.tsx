@@ -13,7 +13,7 @@ const AdminArtistsHomeContent = () => {
 			<h1>Artist</h1>
 			<Link to={"/admin/artist/form"}>ajouter</Link>
 			affichage des menus
-			{results?.map((item) => {
+			{/* {results?.map((item) => {
 				return (
 					<div key={item.id}>
 						<p>{item.name}</p>
@@ -22,8 +22,8 @@ const AdminArtistsHomeContent = () => {
 							<Link to={`/admin/artist/delete/${item.id}`}>Supprimer</Link>
 						</p>
 					</div>
-				);
-			})}
+				); */}
+			{/* })} */}
 		</>
 	);
 };
