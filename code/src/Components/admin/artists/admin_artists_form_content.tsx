@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useId, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 // import { map } from "zod";
 import type { ZodIssue } from "zod/v3";
 import type { Artists } from "../../../../models/artists";
@@ -131,11 +131,21 @@ const AdminArtistsFormContent = ({
 	};
 
 	return (
-		<>
-			<h2>Gérer les Artists</h2>
-			{/* afficher le message */}
-			{message ? <p role="alert">{message}</p> : null}
-			{/* 
+		<div className="min-h-screen flex justify-center items-start pt-32 px-4">
+			<div className="w-full max-w-3xl bg-[#15130f] rounded-2xl shadow-xl p-8">
+				<h2 className="text-3xl font-bold text-[#f6aa1c] mb-8">
+					Gérer les Artists
+				</h2>
+				{/* afficher le message */}
+				{message ? (
+					<p
+						className="mb-6 rounded-lg bg-red-500/10 border border-red-500 text-red-400 px-4 py-3"
+						role="alert"
+					>
+						{message}
+					</p>
+				) : null}
+				{/* 
 			- si le formulaire contient un champ de fichier : ajouter l'attribut enctype="multipat/form-data"
 
 			-pour les champs en relation : 
@@ -143,145 +153,189 @@ const AdminArtistsFormContent = ({
 			> table de jointure : cases à cocher
 			 > sélection de plusiers choix
 		*/}
-			<form encType="miltipart/form-data" onSubmit={handleSubmit(submitForm)}>
-				<p>
-					<label htmlFor={nameId}>Nom</label>
+				<form
+					encType="miltipart/form-data"
+					onSubmit={handleSubmit(submitForm)}
+					className="space-y-6"
+				>
+					<div>
+						<label htmlFor={nameId} className="block text-sm font-medium  mb-1">
+							Nom
+						</label>
 
-					{/* reprendre strictement le nom des champs de formulaire testés avec flashpost */}
-					<input
-						type="text"
-						id={nameId}
-						{...register("name", {
-							required: "Le nom est obligatoire",
-							minLength: {
-								value: 2,
-								message: "un nom doit comporter, au minimun , 2 caractéres",
-							},
-							maxLength: {
-								value: 150,
-								message: "Un nom doit comporter, au maximun 150 caractéres",
-							},
+						{/* reprendre strictement le nom des champs de formulaire testés avec flashpost */}
+						<input
+							type="text"
+							id={nameId}
+							className="w-full rounded-lg bg-[#0f0d0a] border border-gray-700
+			text-white px-4 py-2 focus:outline-none
+			focus:ring-2 focus:ring-[#f6aa1c]"
+							{...register("name", {
+								required: "Le nom est obligatoire",
+								minLength: {
+									value: 2,
+									message: "un nom doit comporter, au minimun , 2 caractéres",
+								},
+								maxLength: {
+									value: 150,
+									message: "Un nom doit comporter, au maximun 150 caractéres",
+								},
+							})}
+						/>
+
+						{/* afficher les messages d'erreur : utiliser le name du champ, défini dans register */}
+						<small role="alert">
+							{errors.name?.message ?? serverErrors?.name}
+						</small>
+					</div>
+					<p>
+						<label htmlFor={nameId}>Description</label>
+
+						{/* reprendre strictement le nom des champs de formulaire testés avec flashpost */}
+						<input
+							type="text"
+							id={descriptionId}
+							className="w-full rounded-lg bg-[#0f0d0a] border border-gray-700
+			text-white px-4 py-2 focus:outline-none
+			focus:ring-2 focus:ring-[#f6aa1c]"
+							{...register("description", {
+								required: "La description est obligatoire",
+								minLength: {
+									value: 2,
+									message: "un nom doit comporter, au minimun , 2 caractéres",
+								},
+								maxLength: {
+									value: 350,
+									message: "Un nom doit comporter, au maximun 350 caractéres",
+								},
+							})}
+						/>
+
+						{/* afficher les messages d'erreur : utiliser le name du champ, défini dans register */}
+						<small role="alert">
+							{errors.description?.message ?? serverErrors?.description}
+						</small>
+					</p>
+					<p>
+						<label htmlFor={imageId}>Image</label>
+						{/*  reprendre strictement le nom des champs de formulaire testés avec flashpost */}
+						<input
+							type="file"
+							id={imageId}
+							className="w-full rounded-lg bg-[#0f0d0a] border border-gray-700
+			text-white px-4 py-2 focus:outline-none
+			focus:ring-2 focus:ring-[#f6aa1c]"
+							{...register(
+								"image",
+								dataToUpdate
+									? {}
+									: {
+											required: "L'image est obligatoire",
+										},
+							)}
+						/>
+						<small role="alert">
+							{errors.image?.message ?? serverErrors?.image}
+						</small>
+					</p>
+					<p>
+						<label htmlFor={bioId}>Biographie</label>
+						{/* reprendre strictement le nom des champs de formulaire testés avec flashpost */}
+						<textarea
+							id={bioId}
+							className="w-full rounded-lg bg-[#0f0d0a] border border-gray-700
+			text-white px-4 py-2 focus:outline-none
+			focus:ring-2 focus:ring-[#f6aa1c]"
+							{...register("bio", {
+								required: "La Biographie est obligatoire",
+								minLength: {
+									value: 2,
+									message:
+										"la biographie doit comporter, au minimun , 2 caractéres",
+								},
+								maxLength: {
+									value: 350,
+									message:
+										"la biographie doit comporter, au maximun 350 caractéres",
+								},
+							})}
+						/>
+						<small role="alert">
+							{errors.bio?.message ?? serverErrors?.bio}
+						</small>
+					</p>
+					<div>
+						<p className=" font-medium mb-2">Styles:</p>
+						<div className="grid grid-cols-2 gap-3">
+							{styles.map((item) => {
+								return (
+									<p
+										key={item.id}
+										className="flex items-center gap-2 text-gray-300"
+									>
+										<input
+											type="checkbox"
+											value={item.id}
+											id={item.id as unknown as string}
+											className="accent-[#f6aa1c]"
+											// reprendre strictement le nom des champs de formulaire testés avec flashpost
+											{...register("styles_ids", {
+												required: "Le style est obligatoire",
+											})}
+										/>
+										<label htmlFor={item.name as unknown as string}>
+											{item.name}
+										</label>
+									</p>
+								);
+							})}
+						</div>
+					</div>
+					<div>
+						<p>Origins:</p>
+						{origins.map((item) => {
+							return (
+								<p key={item.id}>
+									<input
+										type="checkbox"
+										value={item.id}
+										className="w-full rounded-lg bg-[#0f0d0a] border border-gray-700
+			text-white px-4 py-2 focus:outline-none
+			focus:ring-2 focus:ring-[#f6aa1c]"
+										id={item.id as unknown as string}
+										// reprendre strictement le nom des champs de formulaire testés avec flashpost
+										{...register("origins_ids", {
+											required: "Le style est obligatoire",
+										})}
+									/>
+									<label htmlFor={item.name as unknown as string}>
+										{item.name}
+									</label>
+								</p>
+							);
 						})}
-					/>
-
-					{/* afficher les messages d'erreur : utiliser le name du champ, défini dans register */}
-					<small role="alert">
-						{errors.name?.message ?? serverErrors?.name}
-					</small>
-				</p>
-				<p>
-					<label htmlFor={nameId}>Description</label>
-
-					{/* reprendre strictement le nom des champs de formulaire testés avec flashpost */}
-					<input
-						type="text"
-						id={descriptionId}
-						{...register("description", {
-							required: "La description est obligatoire",
-							minLength: {
-								value: 2,
-								message: "un nom doit comporter, au minimun , 2 caractéres",
-							},
-							maxLength: {
-								value: 350,
-								message: "Un nom doit comporter, au maximun 350 caractéres",
-							},
-						})}
-					/>
-
-					{/* afficher les messages d'erreur : utiliser le name du champ, défini dans register */}
-					<small role="alert">
-						{errors.description?.message ?? serverErrors?.description}
-					</small>
-				</p>
-				<p>
-					<label htmlFor={imageId}>Image</label>
-					{/*  reprendre strictement le nom des champs de formulaire testés avec flashpost */}
-					<input
-						type="file"
-						id={imageId}
-						{...register(
-							"image",
-							dataToUpdate
-								? {}
-								: {
-										required: "L'image est obligatoire",
-									},
-						)}
-					/>
-					<small role="alert">
-						{errors.image?.message ?? serverErrors?.image}
-					</small>
-				</p>
-				<p>
-					<label htmlFor={bioId}>Biographie</label>
-					{/* reprendre strictement le nom des champs de formulaire testés avec flashpost */}
-					<textarea
-						id={bioId}
-						{...register("bio", {
-							required: "La Biographie est obligatoire",
-							minLength: {
-								value: 2,
-								message:
-									"la biographie doit comporter, au minimun , 2 caractéres",
-							},
-							maxLength: {
-								value: 350,
-								message:
-									"la biographie doit comporter, au maximun 350 caractéres",
-							},
-						})}
-					/>
-					<small role="alert">{errors.bio?.message ?? serverErrors?.bio}</small>
-				</p>
-				<div>
-					<p>Styles:</p>
-					{styles.map((item) => {
-						return (
-							<p key={item.id}>
-								<input
-									type="checkbox"
-									value={item.id}
-									id={item.id as unknown as string}
-									// reprendre strictement le nom des champs de formulaire testés avec flashpost
-									{...register("styles_ids", {
-										required: "Le style est obligatoire",
-									})}
-								/>
-								<label htmlFor={item.name as unknown as string}>
-									{item.name}
-								</label>
-							</p>
-						);
-					})}
-				</div>
-				<div>
-					<p>Origins:</p>
-					{origins.map((item) => {
-						return (
-							<p key={item.id}>
-								<input
-									type="checkbox"
-									value={item.id}
-									id={item.id as unknown as string}
-									// reprendre strictement le nom des champs de formulaire testés avec flashpost
-									{...register("origins_ids", {
-										required: "Le style est obligatoire",
-									})}
-								/>
-								<label htmlFor={item.name as unknown as string}>
-									{item.name}
-								</label>
-							</p>
-						);
-					})}
-				</div>
-				<p>
-					<input type="hidden" id={IdId} {...register("id")} />
-					<button type="submit">Créer un artist</button>
-				</p>
-			</form>
-		</>
+					</div>
+					<p>
+						<input
+							type="hidden"
+							id={IdId}
+							className="w-full rounded-lg bg-[#0f0d0a] border border-gray-700
+			text-white px-4 py-2 focus:outline-none
+			focus:ring-2 focus:ring-[#f6aa1c]"
+							{...register("id")}
+						/>
+						<button
+							type="submit"
+							className="mt-8 w-full rounded-xl bg-[#f6aa1c]
+	text-[#0f0d0a] font-semibold py-3
+	hover:bg-[#ffbd3f] transition"
+						>
+							Créer un artist
+						</button>
+					</p>
+				</form>
+			</div>
+		</div>
 	);
 };
 

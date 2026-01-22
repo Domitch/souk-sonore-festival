@@ -9,8 +9,8 @@ interface HeroProps {
 const AdminArtistPage = ({ onNavigate }: HeroProps) => {
 	return (
 		<>
-			<h1 style={{ marginTop: "200px" }}>bienvenue CRUD Artist</h1>
-			<AdminArtistsHomeContent />
+			<h1 style={{ marginTop: "200px" }}>Bienvenue CRUD Artist</h1>
+			<AdminArtistsHomeContent onNavigate={onNavigate} />
 			<Button
 				onClick={() => onNavigate("adminartist")}
 				variant="outline"

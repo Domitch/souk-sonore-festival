@@ -7,10 +7,11 @@ type Artists = {
 	description: string;
 	image: string;
 	bio: string;
+	//liste concaténée des identifiants des inspirations
 	styles_ids: string | string[];
 	styles: Styles[];
 	origins_ids: string | string[];
-	origins: Origins[]; // <-- tableau et non objet
+	origins: Origins[];
 };
 
 export type { Artists };
