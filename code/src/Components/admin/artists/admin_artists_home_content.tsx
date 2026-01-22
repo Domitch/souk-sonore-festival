@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import type { Artists } from "../../../../models/artists";
 import ArtistApiService from "../../../services/artists_api_service";
 import { Button } from "../../shared/button";
 
-interface Artist {
-	id: number;
-	name: string;
-}
-
 const AdminArtistsHomeContent = () => {
-	const [results, setResults] = useState<Artist[]>([]);
+	const [results, setResults] = useState<Artists[]>([]);
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -46,21 +42,21 @@ const AdminArtistsHomeContent = () => {
 					<p className="text-lg">{item.name}</p>
 
 					<div className="flex gap-4 mt-2">
-						{/* <Button
+						<Button
 							onClick={() => navigate(`/admin/artist/form/${item.id}`)}
 							variant="outline"
 							className="border-[#f6aa1c] text-[#f6aa1c]
 							hover:bg-[#f6aa1c] hover:text-[#0f0d0a]"
 						>
 							Modifier
-						</Button> */}
+						</Button>
 
-						{/* <Button
+						<Button
 							onClick={() => navigate(`/admin/artist/delete/${item.id}`)}
 							variant="destructive"
 						>
 							Supprimer
-						</Button> */}
+						</Button>
 					</div>
 				</div>
 			))}
