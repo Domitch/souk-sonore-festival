@@ -35,7 +35,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
 						className="flex items-center gap-2"
 					>
 						<img
-							src="/img/logo/logoSoukSonore.png"
+							src="/img/logoSoukSonore.png"
 							alt="Souk Sonore Logo"
 							className="h-25 w-auto"
 						/>

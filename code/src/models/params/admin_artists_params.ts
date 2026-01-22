@@ -1,7 +1,7 @@
 type AdminArtistsParams = {
 	// reprendre les variables d'URL crées dans le routeur
-	params: {
-		id: number;
+	params?: {
+		id?: number;
 	};
 };
 

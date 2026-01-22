@@ -46,7 +46,7 @@ export function Footer({ onNavigate }: NavigationProps) {
 						className="flex items-center gap-2 "
 					>
 						<img
-							src="/img/logo/logoSoukSonore.png"
+							src="/img/logoSoukSonore.png"
 							alt="Souk Sonore Logo"
 							className="h-25 w-20 flex-shrink-0"
 						/>
