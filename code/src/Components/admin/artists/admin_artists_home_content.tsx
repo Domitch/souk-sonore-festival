@@ -1,7 +1,7 @@
-// export default AdminArtistsHomeContent;
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 import ArtistApiService from "../../../services/artists_api_service";
+import { Button } from "../../shared/button";
 
 interface Artist {
 	id: number;
@@ -10,13 +10,13 @@ interface Artist {
 
 const AdminArtistsHomeContent = () => {
 	const [results, setResults] = useState<Artist[]>([]);
-	console.log(results, setResults);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const fetchArtists = async () => {
 			try {
 				const response = await new ArtistApiService().selectAll();
-				setResults(response?.data ?? []); // fallback à []
+				setResults(response?.data ?? []);
 			} catch (error) {
 				console.error("Erreur chargement artistes", error);
 			}
@@ -28,15 +28,40 @@ const AdminArtistsHomeContent = () => {
 	return (
 		<>
 			<h1>Artist</h1>
-			<Link to="/admin/artist/form">ajouter</Link>
+
+			{/* Bouton AJOUTER */}
+			<Button
+				onClick={() => navigate("/admin/artist/form")}
+				variant="outline"
+				size="lg"
+				className="border-2 border-[#f6aa1c] text-[#f6aa1c]
+				hover:bg-[#f6aa1c] hover:text-[#0f0d0a]
+				px-8 py-6 text-lg transition-all duration-300"
+			>
+				Ajouter un artiste
+			</Button>
 
 			{results.map((item) => (
-				<div key={item.id}>
-					<p>{item.name}</p>
-					<p>
-						<Link to={`/admin/artist/form/${item.id}`}>Modifier</Link>{" "}
-						<Link to={`/admin/artist/delete/${item.id}`}>Supprimer</Link>
-					</p>
+				<div key={item.id} className="mt-6">
+					<p className="text-lg">{item.name}</p>
+
+					<div className="flex gap-4 mt-2">
+						<Button
+							onClick={() => navigate(`/admin/artist/form/${item.id}`)}
+							variant="outline"
+							className="border-[#f6aa1c] text-[#f6aa1c]
+							hover:bg-[#f6aa1c] hover:text-[#0f0d0a]"
+						>
+							Modifier
+						</Button>
+
+						<Button
+							onClick={() => navigate(`/admin/artist/delete/${item.id}`)}
+							variant="destructive"
+						>
+							Supprimer
+						</Button>
+					</div>
 				</div>
 			))}
 		</>

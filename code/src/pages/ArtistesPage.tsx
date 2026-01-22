@@ -20,20 +20,13 @@ export function ArtistesPage() {
 	}, []);
 
 	const filteredArtists =
-		filter === "All" ? artists : artists.filter((artist) => artist);
-
-	// const getCultureColor = (culture: string) => {
-	// 	switch (culture) {
-	// 		case "Afro":
-	// 			return "bg-[#c97d5d]";
-	// 		case "Latino":
-	// 			return "bg-[#f6aa1c]";
-	// 		case "Arabe":
-	// 			return "bg-[#4a5f8c]";
-	// 		default:
-	// 			return "bg-[#f6aa1c]";
-	// 	}
-	// };
+		filter === "All"
+			? artists
+			: artists.filter((artist) =>
+					(artist.styles as unknown as { name: string }[]).some(
+						(style) => style.name === filter,
+					),
+				);
 
 	return (
 		<div className="min-h-screen pt-20 bg-gradient-to-b from-[#220901] via-[#220901] to-[#220901]">
@@ -97,15 +90,6 @@ export function ArtistesPage() {
 									/>
 
 									<div className="absolute inset-0 bg-gradient-to-t from-[#0f0d0a] via-[#0f0d0a]/50 to-transparent" />
-
-									{/* Culture Badge */}
-									{/* <div
-										className={`absolute top-4 right-4 ${getCultureColor(
-											artist.culture,
-										)} text-white px-4 py-2 rounded-full text-sm`}
-									>
-										{artist.culture}
-									</div> */}
 								</div>
 
 								{/* Content */}
@@ -157,7 +141,7 @@ export function ArtistesPage() {
 							{/* Modal Image */}
 							<div className="relative h-96">
 								<img
-									src={selectedArtist.image}
+									src={`/img/${selectedArtist.image}`}
 									alt={selectedArtist.name}
 									className="w-full h-full object-cover"
 								/>
@@ -171,14 +155,6 @@ export function ArtistesPage() {
 								>
 									<X size={24} />
 								</button>
-
-								{/* <div
-									className={`absolute top-4 left-4 ${getCultureColor(
-										selectedArtist.culture,
-									)} text-white px-4 py-2 rounded-full`}
-								>
-									{selectedArtist.culture}
-								</div> */}
 							</div>
 
 							{/* Modal Content */}
