@@ -3,8 +3,6 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import ArtistApiService from "../services/artists_api_service";
 
-// import { ImageWithFallback } from "./figma/ImageWithFallback";
-
 interface Artist {
 	id: number;
 	name: string;
