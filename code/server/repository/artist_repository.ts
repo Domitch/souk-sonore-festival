@@ -120,7 +120,7 @@ class ArtistRepository {
 
 			// deuxième rêquete SQL
 			sql = `SET @id = LAST_INSERT_ID();`;
-			await connection.execute(sql);
+			await connection.execute(sql, data);
 			// troixième rêquete
 			// INSERT INTO codefilles.inspirations
 			// VALUES
@@ -140,7 +140,18 @@ class ArtistRepository {
 
 			// execution de la rêquete
 			// si la rêquete posséde des variables, utiliser le paramètre de la méthode
-			sql = ` insert into ${process.env.MYSQL_DATABASE}.artist_style value ${joinsIds};`;
+			sql = ` insert into ${process.env.MYSQL_DATABASE}.artist_styles value ${joinsIds};`;
+
+			// autre
+			await connection.execute(sql, data);
+
+			const joinsIds1 = (data.origins_ids as string)
+				?.split(",")
+				.map((value) => `(${value}, @id)`)
+				.join();
+
+			sql = ` insert into ${process.env.MYSQL_DATABASE}.artist_origins value ${joinsIds1};`;
+
 			const [query] = await connection.execute(sql);
 
 			// valider la transaction

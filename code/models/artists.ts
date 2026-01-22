@@ -11,7 +11,7 @@ type Artists = {
 	styles_ids: string | string[];
 	styles: Styles[];
 	origins_ids: string | string[];
-	origins: Origins;
+	origins: Origins[];
 };
 
 export type { Artists };

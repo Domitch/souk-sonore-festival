@@ -6,9 +6,16 @@ import { Hero } from "./pages/Hero";
 import "./App.css";
 import { Footer } from "./Components/shared/Footer";
 import { Navigation } from "./Components/shared/Navigation";
+import AdminArtistPage from "./pages/admin/artist/adminartisthome";
+import AdminHome from "./pages/admin/index";
 
-type Page = "accueil" | "artistes" | "billetterie" | "contact";
-
+type Page =
+	| "accueil"
+	| "artistes"
+	| "billetterie"
+	| "contact"
+	| "admin"
+	| "adminartist";
 export default function App() {
 	const [currentPage, setCurrentPage] = useState<Page>("accueil");
 
@@ -29,6 +36,10 @@ export default function App() {
 			{currentPage === "artistes" && <ArtistesPage />}
 			{currentPage === "billetterie" && <BilletteriePage />}
 			{currentPage === "contact" && <ContactPage />}
+			{currentPage === "admin" && <AdminHome onNavigate={handleNavigate} />}
+			{currentPage === "adminartist" && (
+				<AdminArtistPage onNavigate={handleNavigate} />
+			)}
 
 			<Footer />
 		</div>
