@@ -187,3 +187,4 @@ export function ArtistesPage() {
 		</div>
 	);
 }
+0;
