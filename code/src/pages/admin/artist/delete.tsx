@@ -8,7 +8,7 @@ const AdminArtistsDelete = ({ id }: { id: number }) => {
 
 	useEffect(() => {
 		new ArtistApiService().delete({ id }).then(() => {
-			navigate("/adminartist");
+			navigate("adminartist");
 		});
 	}, [id, navigate]);
 
