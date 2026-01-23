@@ -209,9 +209,13 @@ class ArtistRepository {
 		// connexion au serveur MYSQL
 		const connection = await new MySQLService().connect();
 		//requête SQL
-		let sql = `delete from ${process.env.MYSQL_DATABASE}.categorie_inspirations
-		 where
-	    categorie_inspirations.inspirations_id = :id;
+		let sql = `delete from ${process.env.MYSQL_DATABASE}.artist_style
+		 where artist_style.artist_id = :id;
+		`;
+		await connection.execute(sql, data);
+
+		sql = `delete from ${process.env.MYSQL_DATABASE}.artist_origin
+		 where artist_origin.artist_id = :id;
 		`;
 
 		// try/catch : récupérer les résultats de la requêt
@@ -241,6 +245,42 @@ class ArtistRepository {
 			return error;
 		}
 	};
+	// public delete = async (
+	// 	data: Partial<Artists>,
+	// ): Promise<QueryResult | unknown> => {
+	// 	const connection = await new MySQLService().connect();
+
+	// 	try {
+	// 		await connection.beginTransaction();
+
+	// 		//  supprimer artist_style
+	// 		await connection.execute(
+	// 			`DELETE FROM ${process.env.MYSQL_DATABASE}.artist_style
+	// 		 WHERE artist_id = :id`,
+	// 			data,
+	// 		);
+
+	// 		//  supprimer artist_origin
+	// 		await connection.execute(
+	// 			`DELETE FROM ${process.env.MYSQL_DATABASE}.artist_origin
+	// 		 WHERE artist_id = :id`,
+	// 			data,
+	// 		);
+
+	// 		//  supprimer artist
+	// 		const [query] = await connection.execute(
+	// 			`DELETE FROM ${process.env.MYSQL_DATABASE}.${this.table}
+	// 		 WHERE ${this.table}.id = :id`,
+	// 			data,
+	// 		);
+
+	// 		await connection.commit();
+	// 		return query;
+	// 	} catch (error) {
+	// 		await connection.rollback();
+	// 		return error;
+	// 	}
+	// };
 }
 
 export default ArtistRepository;

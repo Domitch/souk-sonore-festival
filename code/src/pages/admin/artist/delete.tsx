@@ -1,17 +1,14 @@
 "use client";
 import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ArtistApiService from "../../../services/artists_api_service";
 
-const AdminArtistsDelete = () => {
-	const { id } = useParams<{ id: string }>();
+const AdminArtistsDelete = ({ id }: { id: number }) => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (!id) return;
-
-		new ArtistApiService().delete({ id: Number(id) }).then(() => {
-			navigate("/admin/artist");
+		new ArtistApiService().delete({ id }).then(() => {
+			navigate("/adminartist");
 		});
 	}, [id, navigate]);
 

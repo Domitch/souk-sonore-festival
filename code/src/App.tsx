@@ -22,7 +22,7 @@ type Page =
 	| "adminartistdelete";
 export default function App() {
 	const [currentPage, setCurrentPage] = useState<Page>("accueil");
-
+	const [selectedArtistId, setSelectedArtistId] = useState<number | null>(null);
 	// Smooth scroll to top when page changes
 	// useEffect(() => {
 	//   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -47,7 +47,9 @@ export default function App() {
 			{currentPage === "adminartistform" && (
 				<AdminArtists onNavigate={handleNavigate} />
 			)}
-			{currentPage === "adminartistdelete" && <AdminArtistsDelete />}
+			{currentPage === "adminartistdelete" && selectedArtistId && (
+				<AdminArtistsDelete id={selectedArtistId} />
+			)}
 
 			<Footer onNavigate={handleNavigate} />
 		</div>
