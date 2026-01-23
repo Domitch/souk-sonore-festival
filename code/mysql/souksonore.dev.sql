@@ -129,6 +129,7 @@ INSERT INTO souksonore.artist(name, description, image, bio) values (
     INSERT INTO souksonore.artist_origin
     values 
     (1, 1),
+    (1, 3),
     (2, 2),
     (3, 3),
     (4, 2),
