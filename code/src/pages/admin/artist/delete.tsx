@@ -1,37 +1,21 @@
 "use client";
 import { useEffect } from "react";
-import { useNavigate } from "react-router";
-import type { AdminArtistsParams } from "../../../models/params/admin_artists_params";
+import { useNavigate, useParams } from "react-router-dom";
 import ArtistApiService from "../../../services/artists_api_service";
 
-const AdminArtistsDelete = ({ params }: AdminArtistsParams) => {
-	// récupérer la variable d'URL
-	const { id } = params;
-
-	// use Navigate permet de créer une redirection
+const AdminArtistsDelete = () => {
+	const { id } = useParams<{ id: string }>();
 	const navigate = useNavigate();
-	//  useEffect sert à donner un cycle de vie
-	// supprimer à l'affichage du composant / la page
+
 	useEffect(() => {
-		// la méthode then équivaut à await
-		// new InspirationsApiService().selectOne(id).then( item => {
-		// 	dataToUpdate = item.data as Inspirations;
-		// 	console.log(dataToUpdate);
-		// });
-		new ArtistApiService().delete({ id: id }).then(() => {
+		if (!id) return;
+
+		new ArtistApiService().delete({ id: Number(id) }).then(() => {
 			navigate("/admin/artist");
-			return;
 		});
-	}, [id, navigate]); // si des données sont à mettre à jour
+	}, [id, navigate]);
 
-	return (
-		<>
-			{/* Uniquement de composant */}
-
-			{/* SEO */}
-			<title> Gestion des Artists - Administration - SoukSonore </title>
-		</>
-	);
+	return <title>Gestion des Artists</title>;
 };
 
 export default AdminArtistsDelete;

@@ -43,7 +43,7 @@ class ArtistApiService {
 	public insert = async (data: FormData): Promise<ApiResponse<Artists>> => {
 		// configurer la requête HTTP
 		const request = new Request(`http://127.0.0.1:3000${this.prefix}`, {
-			method: "POST",
+			method: "post",
 			body: data,
 		});
 
