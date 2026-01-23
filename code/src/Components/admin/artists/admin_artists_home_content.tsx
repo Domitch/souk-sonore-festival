@@ -56,7 +56,7 @@ const AdminArtistsHomeContent = ({
 
 					<div className="flex gap-4 mt-2">
 						<Button
-							onClick={() => onNavigate(`/admin/artist/form${item.id}`)}
+							onClick={() => onNavigate(`adminartistform${item.id}`)}
 							variant="outline"
 							className="border-[#f6aa1c] text-[#f6aa1c]
 							hover:bg-[#f6aa1c] hover:text-[#0f0d0a]"
@@ -65,7 +65,7 @@ const AdminArtistsHomeContent = ({
 						</Button>
 
 						<Button
-							onClick={() => onNavigate(`/admin/artist/delete${item.id}`)}
+							onClick={() => onNavigate(`adminartistdelete${item.id}`)}
 							variant="destructive"
 						>
 							Supprimer

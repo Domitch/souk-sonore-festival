@@ -12,9 +12,9 @@ class StyleRepository {
 
 		// requête SQL
 
-		const sql = `SELECT ${this.table}.* 
-        FROM ${process.env.MYSQL_DATABASE}.${this.table};
-        `;
+		const sql = `SELECT ${this.table}.*
+		FROM ${process.env.MYSQL_DATABASE}.${this.table};
+		`;
 		// try/catch : récupérer les résultats de la requêt
 		try {
 			//exécution dela requête

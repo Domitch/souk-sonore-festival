@@ -7,6 +7,7 @@ import "./App.css";
 import { Footer } from "./Components/shared/Footer";
 import { Navigation } from "./Components/shared/Navigation";
 import AdminArtistPage from "./pages/admin/artist/adminartisthome";
+import AdminArtistsDelete from "./pages/admin/artist/delete";
 import AdminArtists from "./pages/admin/artist/form";
 import AdminHome from "./pages/admin/index";
 
@@ -17,7 +18,8 @@ type Page =
 	| "contact"
 	| "admin"
 	| "adminartist"
-	| "adminartistform";
+	| "adminartistform"
+	| "adminartistdelete";
 export default function App() {
 	const [currentPage, setCurrentPage] = useState<Page>("accueil");
 
@@ -42,7 +44,10 @@ export default function App() {
 			{currentPage === "adminartist" && (
 				<AdminArtistPage onNavigate={handleNavigate} />
 			)}
-			{currentPage === "adminartistform" && <AdminArtists />}
+			{currentPage === "adminartistform" && (
+				<AdminArtists onNavigate={handleNavigate} />
+			)}
+			{currentPage === "adminartistdelete" && <AdminArtistsDelete />}
 
 			<Footer onNavigate={handleNavigate} />
 		</div>

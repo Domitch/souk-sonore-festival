@@ -62,7 +62,14 @@ import StylesApiService from "../../../services/styles_api_service";
 // 	id?: number;
 // };
 
-const AdminArtists = ({ id }: { id?: number }): React.JSX.Element => {
+interface HeroProps {
+	onNavigate: (page: string) => void;
+}
+
+const AdminArtists = ({
+	id,
+	onNavigate,
+}: { id?: number } & HeroProps): React.JSX.Element => {
 	// const id = params?.id;
 
 	const [dataToUpdate, setDataToUpdate] = useState<Artists | undefined>(
@@ -101,6 +108,7 @@ const AdminArtists = ({ id }: { id?: number }): React.JSX.Element => {
 				origins={origins}
 				validator={new AdminArtistsFormValidator().validate}
 				dataToUpdate={dataToUpdate}
+				onNavigate={onNavigate}
 			/>
 		</>
 	);

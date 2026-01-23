@@ -199,7 +199,7 @@ export function Hero({ onNavigate }: HeroProps) {
 						</h2>
 						<img
 							className="w-full max-w-[400px] h-auto border-[#f6aa1c] object-contain mx-auto mb-8 rounded-lg shadow-2xl"
-							src="/public/img/souksonoreprogr.png"
+							src="/img/souksonoreprogr.png"
 							alt="des gent dans un concert"
 						/>
 

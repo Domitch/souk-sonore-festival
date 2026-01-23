@@ -1,19 +1,24 @@
 "use client";
 import { useEffect, useId, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 // import { map } from "zod";
 import type { ZodIssue } from "zod/v3";
 import type { Artists } from "../../../../models/artists";
 import type { AdminArtistsFormContentProps } from "../../../models/props/admin/admin_artists_form_content_props";
 import ArtistApiService from "../../../services/artists_api_service";
 
+interface HeroProps {
+	onNavigate: (page: string) => void;
+}
+
 const AdminArtistsFormContent = ({
 	styles,
 	origins,
 	validator,
 	dataToUpdate,
-}: AdminArtistsFormContentProps) => {
+	onNavigate,
+}: AdminArtistsFormContentProps & HeroProps) => {
 	// créer des identifiants pour les champs de formilaire
 	const IdId = useId();
 	const nameId = useId();
@@ -22,7 +27,7 @@ const AdminArtistsFormContent = ({
 	const bioId = useId();
 
 	// useNavigate hook: permet de créer une redirection
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 
 	// stocker les mesages d'erreur de validation côté serveur
 
@@ -55,8 +60,8 @@ const AdminArtistsFormContent = ({
 			// modifier le modéle si besoin
 			const normalizedData = {
 				...dataToUpdate,
-				styles_ids: (dataToUpdate.styles_ids as string).split(","),
-				origins_ids: (dataToUpdate.origins_ids as string).split(","),
+				styles_ids: (dataToUpdate.styles_ids as string).split(",").join(),
+				origins_ids: (dataToUpdate.origins_ids as string).split(",").join(),
 			};
 			reset(normalizedData);
 		}
@@ -105,9 +110,12 @@ const AdminArtistsFormContent = ({
 			normalizedData.description as unknown as string,
 		);
 		formData.set("image", normalizedData.image as unknown as string);
-		formData.set("biographie", normalizedData.bio as unknown as string);
-		formData.set("styles_ids", normalizedData.styles_ids as string);
-		formData.set("origins_ids", normalizedData.origins_ids as string);
+		formData.set("bio", normalizedData.bio as unknown as string);
+		formData.set("styles_ids", normalizedData.styles_ids as unknown as string);
+		formData.set(
+			"origins_ids",
+			normalizedData.origins_ids as unknown as string,
+		);
 
 		// requête HTTP vers l'API
 		const process = dataToUpdate
@@ -120,7 +128,7 @@ const AdminArtistsFormContent = ({
 		/* est ce que le code de status est dans cette liste = different de -1 (-1= absent de la liste)
      useNavigate = on redirige vers une autre page sans click  */
 		if ([200, 201].indexOf(process.status) !== -1) {
-			navigate("/admin/artist");
+			onNavigate("adminartist");
 
 			// si la rêquete HTTP a échoue
 		} else if ([400].indexOf(process.status) !== -1) {
@@ -154,7 +162,7 @@ const AdminArtistsFormContent = ({
 			 > sélection de plusiers choix
 		*/}
 				<form
-					encType="miltipart/form-data"
+					encType="multipart/form-data"
 					onSubmit={handleSubmit(submitForm)}
 					className="space-y-6"
 				>
@@ -223,8 +231,8 @@ const AdminArtistsFormContent = ({
 							type="file"
 							id={imageId}
 							className="w-full rounded-lg bg-[#0f0d0a] border border-gray-700
-			text-white px-4 py-2 focus:outline-none
-			focus:ring-2 focus:ring-[#f6aa1c]"
+							text-white px-4 py-2 focus:outline-none
+							focus:ring-2 focus:ring-[#f6aa1c]"
 							{...register(
 								"image",
 								dataToUpdate
@@ -292,43 +300,46 @@ const AdminArtistsFormContent = ({
 						</div>
 					</div>
 					<div>
-						<p>Origins:</p>
-						{origins.map((item) => {
-							return (
-								<p key={item.id}>
-									<input
-										type="checkbox"
-										value={item.id}
-										className="w-full rounded-lg bg-[#0f0d0a] border border-gray-700
-			text-white px-4 py-2 focus:outline-none
-			focus:ring-2 focus:ring-[#f6aa1c]"
-										id={item.id as unknown as string}
-										// reprendre strictement le nom des champs de formulaire testés avec flashpost
-										{...register("origins_ids", {
-											required: "Le style est obligatoire",
-										})}
-									/>
-									<label htmlFor={item.name as unknown as string}>
-										{item.name}
-									</label>
-								</p>
-							);
-						})}
+						<p className=" font-medium mb-2">Origins:</p>
+						<div className="grid grid-cols-3 gap-3">
+							{origins.map((item) => {
+								return (
+									<p
+										key={item.id}
+										className="flex items-center gap-2 text-gray-300"
+									>
+										<input
+											type="checkbox"
+											value={item.id}
+											className="accent-[#f6aa1c]"
+											id={item.id as unknown as string}
+											// reprendre strictement le nom des champs de formulaire testés avec flashpost
+											{...register("origins_ids", {
+												required: "Le style est obligatoire",
+											})}
+										/>
+										<label htmlFor={item.name as unknown as string}>
+											{item.name}
+										</label>
+									</p>
+								);
+							})}
+						</div>
 					</div>
 					<p>
 						<input
 							type="hidden"
 							id={IdId}
 							className="w-full rounded-lg bg-[#0f0d0a] border border-gray-700
-			text-white px-4 py-2 focus:outline-none
-			focus:ring-2 focus:ring-[#f6aa1c]"
+							text-white px-4 py-2 focus:outline-none
+							focus:ring-2 focus:ring-[#f6aa1c]"
 							{...register("id")}
 						/>
 						<button
 							type="submit"
 							className="mt-8 w-full rounded-xl bg-[#f6aa1c]
-	text-[#0f0d0a] font-semibold py-3
-	hover:bg-[#ffbd3f] transition"
+							text-[#0f0d0a] font-semibold py-3
+								hover:bg-[#ffbd3f] transition"
 						>
 							Créer un artist
 						</button>

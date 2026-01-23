@@ -34,9 +34,9 @@ class Server {
 	private routersList = () => {
 		// créer un préfixe à toutes les routes inclus dans un routeur
 		this.router.use("/api", new HomepageRouter().getRoutes());
+		this.router.use("/api/styles", new StylesRouter().getRoutes());
 		this.router.use("/api/artist", new ArtistRouter().getRoutes());
-		this.router.use("/api/artist/origins", new OriginsRouter().getRoutes());
-		this.router.use("/api/artist/styles", new StylesRouter().getRoutes());
+		this.router.use("/api/origins", new OriginsRouter().getRoutes());
 	};
 
 	// demarrer le server
